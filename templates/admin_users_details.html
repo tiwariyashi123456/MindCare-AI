@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>User Details - MindCare AI Admin</title>
+
+
+<!-- Bootstrap -->
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
+
+
+<!-- Bootstrap Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+>
+
+
+<!-- Admin CSS -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/admin.css') }}"
+>
+```
+
+</head>
+
+<body>
+
+<div class="admin-page">
+
+```
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="admin-sidebar">
+
+
+    <!-- ADMIN BRAND -->
+
+    <div class="admin-brand">
+
+        <div class="admin-brand-icon">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+        </div>
+
+
+        <div>
+
+            <h2>
+                MindCare AI
+            </h2>
+
+            <span>
+                Admin Panel
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         ADMIN NAVIGATION
+         ================================================= -->
+
+    <nav class="admin-nav">
+
+
+        <!-- Dashboard -->
+
+        <a href="{{ url_for('admin_dashboard') }}">
+
+            <i class="bi bi-grid-1x2-fill"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <!-- Manage Users -->
+
+        <a
+            href="{{ url_for('admin_users') }}"
+            class="active"
+        >
+
+            <i class="bi bi-people-fill"></i>
+
+            <span>
+                Manage Users
+            </span>
+
+        </a>
+
+
+        <!-- Mind Checks -->
+
+        <a href="{{ url_for('admin_mind_checks') }}">
+
+            <i class="bi bi-clipboard2-pulse-fill"></i>
+
+            <span>
+                Mind Checks
+            </span>
+
+        </a>
+
+
+        <!-- Mood Records -->
+
+        <a href="#">
+
+            <i class="bi bi-emoji-smile-fill"></i>
+
+            <span>
+                Mood Records
+            </span>
+
+        </a>
+
+
+        <!-- Journal Records -->
+
+        <a href="#">
+
+            <i class="bi bi-journal-text"></i>
+
+            <span>
+                Journal Records
+            </span>
+
+        </a>
+
+
+        <!-- AI Chat History -->
+
+        <a href="#">
+
+            <i class="bi bi-chat-dots-fill"></i>
+
+            <span>
+                AI Chat History
+            </span>
+
+        </a>
+
+
+        <!-- Reports -->
+
+        <a href="#">
+
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+
+            <span>
+                Reports
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- =================================================
+         SIDEBAR FOOTER
+         ================================================= -->
+
+    <div class="admin-sidebar-bottom">
+
+
+        <div class="admin-profile-icon">
+
+            <i class="bi bi-person-fill"></i>
+
+        </div>
+
+
+        <div class="admin-profile-text">
+
+            <strong>
+                {{ session.get('admin_username', 'Admin') }}
+            </strong>
+
+            <span>
+                Administrator
+            </span>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('admin_logout') }}"
+            class="admin-sidebar-logout"
+            title="Logout"
+        >
+
+            <i class="bi bi-box-arrow-right"></i>
+
+        </a>
+
+
+    </div>
+
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+     ===================================================== -->
+
+<main class="admin-main">
+
+
+    <!-- =================================================
+         TOP BAR
+         ================================================= -->
+
+    <header class="admin-topbar">
+
+
+        <div class="admin-topbar-left">
+
+            <div>
+
+                <h1>
+                    User Details
+                </h1>
+
+                <p>
+                    View complete information and activity of the selected user.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-topbar-actions">
+
+
+            <div class="admin-profile">
+
+                <div class="admin-profile-icon">
+
+                    <i class="bi bi-shield-lock-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        {{ session.get('admin_username', 'Admin') }}
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('admin_logout') }}"
+                class="admin-top-logout"
+                title="Logout"
+            >
+
+                <i class="bi bi-box-arrow-right"></i>
+
+            </a>
+
+
+        </div>
+
+
+    </header>
+
+
+    <!-- =================================================
+         CONTENT
+         ================================================= -->
+
+    <section class="admin-content">
+
+
+        <!-- BACK BUTTON -->
+
+        <div class="user-details-back">
+
+            <a
+                href="{{ url_for('admin_users') }}"
+                class="back-users-btn"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Users
+
+            </a>
+
+        </div>
+
+
+        {% if user %}
+
+
+        <!-- =================================================
+             USER PROFILE
+             ================================================= -->
+
+        <div class="user-profile-details-card">
+
+
+            <div class="large-user-avatar">
+
+                {{ user['name'][0]|upper }}
+
+            </div>
+
+
+            <div class="user-profile-info">
+
+
+                <div class="user-profile-main">
+
+                    <h2>
+                        {{ user['name'] }}
+                    </h2>
+
+
+                    <span class="user-active-badge">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Active User
+
+                    </span>
+
+                </div>
+
+
+                <div class="user-profile-contact">
+
+
+                    <!-- Email -->
+
+                    <div>
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                        <span>
+                            {{ user['email'] }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- Mobile -->
+
+                    <div>
+
+                        <i class="bi bi-phone-fill"></i>
+
+                        <span>
+
+                            {{ user['mobile'] if user['mobile'] else 'Not provided' }}
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Joined -->
+
+                    <div>
+
+                        <i class="bi bi-calendar3"></i>
+
+                        <span>
+
+                            Joined:
+                            {{ user['created_at'] if user['created_at'] else 'N/A' }}
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             ACTIVITY SUMMARY
+             ================================================= -->
+
+        <div class="user-activity-summary">
+
+
+            <!-- Mood -->
+
+            <div class="activity-summary-card">
+
+                <div class="activity-summary-icon mood-summary-icon">
+
+                    <i class="bi bi-emoji-smile-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Mood Records
+                    </span>
+
+                    <strong>
+                        {{ moods|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Mind Checks -->
+
+            <div class="activity-summary-card">
+
+                <div class="activity-summary-icon stress-summary-icon">
+
+                    <i class="bi bi-clipboard2-pulse-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Mind Checks
+                    </span>
+
+                    <strong>
+                        {{ stress_analysis|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Journal -->
+
+            <div class="activity-summary-card">
+
+                <div class="activity-summary-icon journal-summary-icon">
+
+                    <i class="bi bi-journal-text"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Journal Entries
+                    </span>
+
+                    <strong>
+                        {{ journal_entries|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI Chats -->
+
+            <div class="activity-summary-card">
+
+                <div class="activity-summary-icon chat-summary-icon">
+
+                    <i class="bi bi-chat-dots-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        AI Chats
+                    </span>
+
+                    <strong>
+                        {{ chat_history|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             MIND CHECK RECORDS
+             ================================================= -->
+
+        <div class="details-section-card">
+
+
+            <div class="details-section-header">
+
+
+                <div>
+
+                    <h3>
+
+                        <i class="bi bi-clipboard2-pulse-fill"></i>
+
+                        Mind Check Records
+
+                    </h3>
+
+
+                    <p>
+                        User's mental wellness assessment history
+                    </p>
+
+                </div>
+
+
+                <span class="record-count">
+
+                    {{ stress_analysis|length }}
+                    Records
+
+                </span>
+
+
+            </div>
+
+
+            {% if stress_analysis %}
+
+
+                {% for record in stress_analysis %}
+
+
+                <div class="stress-record">
+
+
+                    <div class="record-main">
+
+
+                        <div class="record-icon">
+
+                            <i class="bi bi-activity"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+
+                                Stress Level:
+                                {{ record['stress_level'] }}
+
+                            </strong>
+
+
+                            <p>
+
+                                {{ record['result'] if record['result'] else 'No result available' }}
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <span class="chat-date">
+
+                        {{ record['created_at'] }}
+
+                    </span>
+
+
+                </div>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <div class="activity-empty">
+
+                    <i class="bi bi-clipboard-x"></i>
+
+                    <p>
+                        No mind check records found.
+                    </p>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- =================================================
+             MOOD RECORDS
+             ================================================= -->
+
+        <div class="details-section-card">
+
+
+            <div class="details-section-header">
+
+
+                <div>
+
+                    <h3>
+
+                        <i class="bi bi-emoji-smile-fill"></i>
+
+                        Mood Records
+
+                    </h3>
+
+
+                    <p>
+                        User's mood tracking history
+                    </p>
+
+                </div>
+
+
+                <span class="record-count">
+
+                    {{ moods|length }}
+                    Records
+
+                </span>
+
+
+            </div>
+
+
+            {% if moods %}
+
+
+                <div class="mood-record-grid">
+
+
+                    {% for mood in moods %}
+
+
+                    <div class="mood-record-card">
+
+
+                        <div class="mood-record-icon">
+
+                            <i class="bi bi-emoji-smile-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                {{ mood['mood'] }}
+                            </strong>
+
+
+                            <span>
+
+                                {{ mood['mood_date'] }}
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+
+            {% else %}
+
+
+                <div class="activity-empty">
+
+                    <i class="bi bi-emoji-frown"></i>
+
+                    <p>
+                        No mood records found.
+                    </p>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- =================================================
+             JOURNAL RECORDS
+             ================================================= -->
+
+        <div class="details-section-card">
+
+
+            <div class="details-section-header">
+
+
+                <div>
+
+                    <h3>
+
+                        <i class="bi bi-journal-text"></i>
+
+                        Journal Entries
+
+                    </h3>
+
+
+                    <p>
+                        User's personal journal activity
+                    </p>
+
+                </div>
+
+
+                <span class="record-count">
+
+                    {{ journal_entries|length }}
+                    Entries
+
+                </span>
+
+
+            </div>
+
+
+            {% if journal_entries %}
+
+
+                {% for journal in journal_entries %}
+
+
+                <div class="journal-record-card">
+
+
+                    <div class="journal-record-header">
+
+
+                        <div>
+
+                            <h4>
+
+                                {{ journal['title'] if journal['title'] else 'Untitled Entry' }}
+
+                            </h4>
+
+
+                            <span>
+
+                                <i class="bi bi-calendar3"></i>
+
+                                {{ journal['created_at'] }}
+
+                            </span>
+
+                        </div>
+
+
+                        <i class="bi bi-journal-bookmark-fill"></i>
+
+
+                    </div>
+
+
+                    <p>
+
+                        {{ journal['content'] if journal['content'] else 'No content available.' }}
+
+                    </p>
+
+
+                </div>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <div class="activity-empty">
+
+                    <i class="bi bi-journal-x"></i>
+
+                    <p>
+                        No journal entries found.
+                    </p>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- =================================================
+             WELLNESS ACTIVITIES
+             ================================================= -->
+
+        <div class="details-section-card">
+
+
+            <div class="details-section-header">
+
+
+                <div>
+
+                    <h3>
+
+                        <i class="bi bi-heart-pulse-fill"></i>
+
+                        Wellness Activities
+
+                    </h3>
+
+
+                    <p>
+                        Meditation, exercise and yoga activity
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 MEDITATION
+                 ================================================= -->
+
+            <div class="activity-subsection">
+
+
+                <div class="activity-subsection-title">
+
+                    <i class="bi bi-peace-fill"></i>
+
+                    <h4>
+                        Meditation
+                    </h4>
+
+                </div>
+
+
+                {% if meditation_records %}
+
+
+                    {% for item in meditation_records %}
+
+
+                    <div class="activity-record">
+
+
+                        <div>
+
+                            <strong>
+
+                                {{ item['activity'] if item['activity'] else 'Meditation' }}
+
+                            </strong>
+
+
+                            <span>
+
+                                {{ item['duration'] }}
+                                minutes
+
+                            </span>
+
+                        </div>
+
+
+                        <span>
+
+                            {{ item['created_at'] }}
+
+                        </span>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                {% else %}
+
+
+                    <div class="activity-empty">
+
+                        <p>
+                            No meditation records found.
+                        </p>
+
+                    </div>
+
+
+                {% endif %}
+
+
+            </div>
+
+
+            <!-- =================================================
+                 EXERCISE
+                 ================================================= -->
+
+            <div class="activity-subsection">
+
+
+                <div class="activity-subsection-title">
+
+                    <i class="bi bi-person-arms-up"></i>
+
+                    <h4>
+                        Exercise
+                    </h4>
+
+                </div>
+
+
+                {% if exercise_records %}
+
+
+                    {% for item in exercise_records %}
+
+
+                    <div class="activity-record">
+
+
+                        <div>
+
+                            <strong>
+
+                                {{ item['exercise_name'] if item['exercise_name'] else 'Exercise' }}
+
+                            </strong>
+
+
+                            <span>
+
+                                {{ item['duration'] }}
+                                minutes
+
+                            </span>
+
+                        </div>
+
+
+                        <span>
+
+                            {{ item['created_at'] }}
+
+                        </span>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                {% else %}
+
+
+                    <div class="activity-empty">
+
+                        <p>
+                            No exercise records found.
+                        </p>
+
+                    </div>
+
+
+                {% endif %}
+
+
+            </div>
+
+
+            <!-- =================================================
+                 YOGA
+                 ================================================= -->
+
+            <div class="activity-subsection">
+
+
+                <div class="activity-subsection-title">
+
+                    <i class="bi bi-flower1"></i>
+
+                    <h4>
+                        Yoga
+                    </h4>
+
+                </div>
+
+
+                {% if yoga_records %}
+
+
+                    {% for item in yoga_records %}
+
+
+                    {% for item in yoga_records %}
+
+                    <div class="activity-record">
+
+
+                        <div>
+
+                            <strong>
+
+                                {{ item['yoga_name'] if item['yoga_name'] else 'Yoga' }}
+
+                            </strong>
+
+
+                            <span>
+
+                                {{ item['duration'] }}
+                                minutes
+
+                            </span>
+
+                        </div>
+
+
+                        <span>
+
+                            {{ item['created_at'] }}
+
+                        </span>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                {% else %}
+
+
+                    <div class="activity-empty">
+
+                        <p>
+                            No yoga records found.
+                        </p>
+
+                    </div>
+
+
+                {% endif %}
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             AI CHAT HISTORY
+             ================================================= -->
+
+        <div class="details-section-card">
+
+
+            <div class="details-section-header">
+
+
+                <div>
+
+                    <h3>
+
+                        <i class="bi bi-chat-dots-fill"></i>
+
+                        AI Chat History
+
+                    </h3>
+
+
+                    <p>
+                        Previous conversations with MindCare AI
+                    </p>
+
+                </div>
+
+
+                <span class="record-count">
+
+                    {{ chat_history|length }}
+                    Chats
+
+                </span>
+
+
+            </div>
+
+
+            {% if chat_history %}
+
+
+                {% for chat in chat_history %}
+
+
+                <div class="chat-history-record">
+
+
+                    <!-- USER MESSAGE -->
+
+                    <div class="user-message-box">
+
+
+                        <span class="chat-label">
+
+                            <i class="bi bi-person-fill"></i>
+
+                            User
+
+                        </span>
+
+
+                        <p>
+
+                            {{ chat['message'] if chat['message'] else 'No message available.' }}
+
+                        </p>
+
+
+                    </div>
+
+
+                    <!-- AI RESPONSE -->
+
+                    <div class="ai-message-box">
+
+
+                        <span class="chat-label">
+
+                            <i class="bi bi-robot"></i>
+
+                            MindCare AI
+
+                        </span>
+
+
+                        <p>
+
+                            {{ chat['response'] if chat['response'] else 'No response available.' }}
+
+                        </p>
+
+
+                    </div>
+
+
+                    <span class="chat-date">
+
+                        {{ chat['created_at'] }}
+
+                    </span>
+
+
+                </div>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <div class="activity-empty">
+
+                    <i class="bi bi-chat-square-dots"></i>
+
+                    <p>
+                        No AI chat history found.
+                    </p>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- =================================================
+             WELLNESS REMINDERS
+             ================================================= -->
+
+        <div class="details-section-card">
+
+
+            <div class="details-section-header">
+
+
+                <div>
+
+                    <h3>
+
+                        <i class="bi bi-bell-fill"></i>
+
+                        Wellness Reminders
+
+                    </h3>
+
+
+                    <p>
+                        User's wellness reminder settings
+                    </p>
+
+                </div>
+
+
+                <span class="record-count">
+
+                    {{ reminders|length }}
+                    Reminders
+
+                </span>
+
+
+            </div>
+
+
+            {% if reminders %}
+
+
+                <div class="reminder-record-grid">
+
+
+                    {% for reminder in reminders %}
+
+
+                    <div class="reminder-record-card">
+
+
+                        <div class="reminder-icon">
+
+                            <i class="bi bi-bell-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+
+                            <strong>
+
+                                {{ reminder['reminder_title'] }}
+
+                            </strong>
+
+
+                            <p>
+
+                                {{ reminder['reminder_message'] if reminder['reminder_message'] else 'No message' }}
+
+                            </p>
+
+
+                            <span>
+
+                                <i class="bi bi-clock-fill"></i>
+
+                                {{ reminder['reminder_time'] }}
+
+                            </span>
+
+
+                        </div>
+
+
+                        {% if reminder['enabled'] %}
+
+
+                            <span class="reminder-enabled">
+
+                                Enabled
+
+                            </span>
+
+
+                        {% else %}
+
+
+                            <span class="reminder-disabled">
+
+                                Disabled
+
+                            </span>
+
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+
+            {% else %}
+
+
+                <div class="activity-empty">
+
+                    <i class="bi bi-bell-slash"></i>
+
+                    <p>
+                        No wellness reminders found.
+                    </p>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- =================================================
+             BOTTOM BACK BUTTON
+             ================================================= -->
+
+        <div class="details-bottom-back">
+
+
+            <a
+                href="{{ url_for('admin_users') }}"
+                class="back-users-btn"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Manage Users
+
+            </a>
+
+
+        </div>
+
+
+        {% else %}
+
+
+        <!-- =================================================
+             USER NOT FOUND
+             ================================================= -->
+
+        <div class="no-user-records">
+
+
+            <div>
+
+                <i class="bi bi-person-x-fill"></i>
+
+            </div>
+
+
+            <h2>
+                User Not Found
+            </h2>
+
+
+            <p>
+                The requested user could not be found in the database.
+            </p>
+
+
+            <a
+                href="{{ url_for('admin_users') }}"
+                class="back-users-btn"
+            >
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Users
+
+            </a>
+
+
+        </div>
+
+
+        {% endif %}
+
+
+    </section>
+
+
+    <!-- =================================================
+         FOOTER
+         ================================================= -->
+
+    <footer class="admin-footer">
+
+        <p>
+
+            © 2026 MindCare AI
+            ·
+            Admin Panel
+
+        </p>
+
+    </footer>
+
+
+</main>
+```
+
+</div>
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+</body>
+
+</html>

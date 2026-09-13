@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wellness Timer | MindCare AI</title>
+
+    <!-- ================= WELLNESS TIMER CSS ================= -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/wellness_timer.css') }}">
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+            <span>🧠</span>
+            <h2>MindCare AI</h2>
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">
+                🏠 Dashboard
+            </a>
+
+            <a href="{{ url_for('mind_check') }}">
+                🧠 Mind Check
+            </a>
+
+            <a href="{{ url_for('meditation') }}">
+                🧘 Meditation
+            </a>
+
+            <a href="{{ url_for('exercise') }}">
+                🏃 Exercise
+            </a>
+
+            <a href="{{ url_for('yoga') }}">
+                🧘‍♀️ Yoga
+            </a>
+
+            <a href="{{ url_for('wellness_reminder') }}">
+                🔔 Wellness Reminder
+            </a>
+
+            <a href="{{ url_for('wellness_timer') }}" class="active">
+                ⏱️ Wellness Timer
+            </a>
+
+            <a href="{{ url_for('journal') }}">
+                📖 Journal
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                📊 My Progress
+            </a>
+
+            <a href="{{ url_for('report') }}">
+                📄 My Reports
+            </a>
+
+            <a href="{{ url_for('mind_games') }}">
+                🎮 Mind Games
+            </a>
+
+            <a href="{{ url_for('professional_help') }}">
+                👩‍⚕️ Professional Help
+            </a>
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <div class="sidebar-bottom">
+
+            <a href="{{ url_for('logout') }}" class="logout">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================= PAGE HEADER ================= -->
+
+        <header class="page-header">
+
+            <h1>⏱️ Wellness Timer</h1>
+
+            <p>
+                Take a short break and focus on your mental wellness.
+            </p>
+
+        </header>
+
+
+        <!-- ================= TIMER CARD ================= -->
+
+        <section class="timer-card">
+
+
+            <!-- TIMER ICON -->
+
+            <div class="timer-icon">
+                🧘‍♀️
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h2>
+                Mindfulness Timer
+            </h2>
+
+
+            <!-- DESCRIPTION -->
+
+            <p class="timer-description">
+                Choose a duration, start the timer,
+                relax and focus on yourself.
+            </p>
+
+
+            <!-- ================= TIMER DISPLAY ================= -->
+
+            <div class="timer-display">
+
+                <span id="timerDisplay">
+                    05:00
+                </span>
+
+            </div>
+
+
+            <!-- ================= DURATION ================= -->
+
+            <div class="duration-section">
+
+                <label for="durationSelect">
+                    ⏰ Select Duration
+                </label>
+
+
+                <select id="durationSelect">
+
+                    <option value="60">
+                        1 Minute
+                    </option>
+
+
+                    <option value="300" selected>
+                        5 Minutes
+                    </option>
+
+
+                    <option value="600">
+                        10 Minutes
+                    </option>
+
+
+                    <option value="900">
+                        15 Minutes
+                    </option>
+
+
+                    <option value="1200">
+                        20 Minutes
+                    </option>
+
+
+                    <option value="1800">
+                        30 Minutes
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ================= BUTTONS ================= -->
+
+            <div class="button-group">
+
+
+                <!-- START -->
+
+                <button
+                    type="button"
+                    class="timer-btn start-btn"
+                    id="startBtn">
+
+                    ▶ Start
+
+                </button>
+
+
+                <!-- PAUSE -->
+
+                <button
+                    type="button"
+                    class="timer-btn pause-btn"
+                    id="pauseBtn">
+
+                    ⏸ Pause
+
+                </button>
+
+
+                <!-- RESET -->
+
+                <button
+                    type="button"
+                    class="timer-btn reset-btn"
+                    id="resetBtn">
+
+                    🔄 Reset
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= TIMER MESSAGE ================= -->
+
+            <div id="timerMessage"></div>
+
+        </section>
+
+
+        <!-- ================= WELLNESS TIPS ================= -->
+
+        <section class="tips-card">
+
+            <h3>
+                💡 Wellness Tips
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Find a quiet and comfortable place.
+                </li>
+
+                <li>
+                    Take slow and deep breaths.
+                </li>
+
+                <li>
+                    Keep your attention on the present moment.
+                </li>
+
+                <li>
+                    Avoid distractions during the timer.
+                </li>
+
+                <li>
+                    Use this timer regularly for relaxation.
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= ALARM SOUND ================= -->
+
+<audio id="alarmSound" preload="auto">
+
+    <source
+        src="{{ url_for('static', filename='audio/wellness_alarm.wav') }}"
+        type="audio/wav">
+
+</audio>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="{{ url_for('static', filename='js/wellness_timer.js') }}"></script>
+
+
+</body>
+
+</html>

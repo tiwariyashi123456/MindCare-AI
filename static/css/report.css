@@ -1,0 +1,502 @@
+/* ============================================================
+   MINDCARE AI - MY REPORTS
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #101116;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+
+    background: #181a22;
+    border-right: 1px solid #272936;
+
+    padding: 25px 15px;
+    overflow-y: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 5px 10px 30px;
+}
+
+.logo span {
+    font-size: 30px;
+}
+
+.logo h2 {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+
+/* Navigation */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 15px;
+
+    color: #9295a3;
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    transition: 0.2s ease;
+}
+
+.sidebar nav a:hover {
+    background: #22242e;
+    color: #ffffff;
+}
+
+.sidebar nav a.active {
+    background: #6c63ff;
+    color: #ffffff;
+}
+
+.sidebar nav a:first-letter {
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main-content {
+    margin-left: 250px;
+    padding: 35px;
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #9295a3;
+    font-size: 15px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #6c63ff;
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+.report-section {
+    margin-bottom: 35px;
+}
+
+.report-section h2 {
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    margin-bottom: 7px;
+}
+
+.section-header p {
+    color: #9295a3;
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   SUMMARY GRID
+   ============================================================ */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* Summary Card */
+
+.summary-card {
+    background: #181a22;
+
+    border: 1px solid #272936;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    transition: 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    border-color: #6c63ff;
+}
+
+.summary-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #22242e;
+
+    border-radius: 14px;
+
+    font-size: 27px;
+
+    flex-shrink: 0;
+}
+
+.summary-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.summary-card strong {
+    display: block;
+
+    font-size: 27px;
+
+    color: #6c63ff;
+
+    margin-bottom: 4px;
+}
+
+.summary-card p {
+    color: #9295a3;
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   PRINT BUTTON
+   ============================================================ */
+
+.print-button {
+    border: none;
+
+    background: #6c63ff;
+    color: #ffffff;
+
+    padding: 12px 18px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.print-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* ============================================================
+   REPORT CARD
+   ============================================================ */
+
+.report-card {
+    background: #181a22;
+
+    border: 1px solid #272936;
+
+    border-radius: 16px;
+
+    padding: 10px 25px;
+}
+
+.report-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 19px 5px;
+
+    border-bottom: 1px solid #272936;
+
+    color: #d7d8df;
+}
+
+.report-row span {
+    font-size: 15px;
+}
+
+.report-row strong {
+    font-size: 17px;
+    color: #6c63ff;
+}
+
+
+/* Total */
+
+.report-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 5px;
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+.report-total strong {
+    font-size: 22px;
+    color: #6c63ff;
+}
+
+
+/* ============================================================
+   MOTIVATION CARD
+   ============================================================ */
+
+.motivation-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: #181a22;
+
+    border: 1px solid #272936;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    margin-bottom: 35px;
+}
+
+.motivation-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #22242e;
+
+    border-radius: 14px;
+
+    font-size: 27px;
+
+    flex-shrink: 0;
+}
+
+.motivation-card h2 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.motivation-card p {
+    color: #9295a3;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.page-footer {
+    text-align: center;
+
+    padding: 20px 0;
+
+    color: #686b78;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        padding: 22px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 8px;
+    }
+
+    .logo {
+        justify-content: center;
+        padding: 5px 0 25px;
+    }
+
+    .logo h2 {
+        display: none;
+    }
+
+    .sidebar nav a {
+        justify-content: center;
+        padding: 13px 8px;
+    }
+
+    .sidebar nav a span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 18px;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .summary-card {
+        padding: 18px;
+    }
+
+    .report-card {
+        padding: 5px 15px;
+    }
+
+    .report-row span {
+        font-size: 13px;
+    }
+
+    .report-total span {
+        font-size: 13px;
+    }
+
+}

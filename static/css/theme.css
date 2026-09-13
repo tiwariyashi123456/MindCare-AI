@@ -1,0 +1,447 @@
+/* =========================================================
+   MINDCARE AI - GLOBAL PREMIUM THEME
+   DARK PURPLE + GOLD
+   ========================================================= */
+
+:root {
+    --bg-main: #171329;
+    --bg-secondary: #211a38;
+
+    --bg-card: rgba(255, 255, 255, 0.075);
+    --bg-card-hover: rgba(255, 255, 255, 0.115);
+
+    --primary: #d8b45a;
+    --primary-light: #f0d88b;
+    --primary-dark: #b99236;
+
+    --accent: #9b7cff;
+    --accent-light: #b9a5ff;
+
+    --mint: #62d6b0;
+
+    --text-main: #ffffff;
+    --text-secondary: #c9c3d8;
+    --text-muted: #9790aa;
+
+    --border: rgba(255, 255, 255, 0.12);
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30);
+
+    --radius: 20px;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
+
+[data-theme="light"] {
+
+    --bg-main: #f4efff;
+    --bg-secondary: #ebe3ff;
+
+    --bg-card: rgba(255, 255, 255, 0.82);
+    --bg-card-hover: rgba(255, 255, 255, 0.96);
+
+    --primary: #7552c7;
+    --primary-light: #9675e8;
+    --primary-dark: #5d3ba9;
+
+    --accent: #8064d9;
+    --accent-light: #a58cec;
+
+    --mint: #269c78;
+
+    --text-main: #241c36;
+    --text-secondary: #5d566e;
+    --text-muted: #817990;
+
+    --border: rgba(72, 50, 120, 0.12);
+
+    --shadow:
+        0 20px 50px rgba(74, 48, 130, 0.12);
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(125, 91, 220, 0.22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(216, 180, 90, 0.10),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(98, 214, 176, 0.08),
+            transparent 30%
+        ),
+
+        var(--bg-main);
+
+    color: var(--text-main);
+
+    min-height: 100vh;
+
+    transition:
+        background 0.4s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   GLASS CARD
+   ========================================================= */
+
+.glass-card {
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.glass-card:hover {
+
+    transform: translateY(-5px);
+
+    background: var(--bg-card-hover);
+
+    border-color:
+        rgba(216, 180, 90, 0.28);
+}
+
+
+/* =========================================================
+   GOLD BUTTON
+   ========================================================= */
+
+.btn-premium {
+
+    border: none;
+
+    color: #241c12;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-light),
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    padding: 12px 22px;
+
+    border-radius: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(216, 180, 90, 0.22);
+
+    transition: all 0.3s ease;
+}
+
+
+.btn-premium:hover {
+
+    transform: translateY(-3px);
+
+    color: #171329;
+
+    box-shadow:
+        0 15px 35px rgba(216, 180, 90, 0.35);
+}
+
+
+/* =========================================================
+   OUTLINE BUTTON
+   ========================================================= */
+
+.btn-outline-premium {
+
+    color: var(--primary-light);
+
+    background:
+        rgba(216, 180, 90, 0.06);
+
+    border:
+        1px solid rgba(216, 180, 90, 0.45);
+
+    padding: 11px 21px;
+
+    border-radius: 13px;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+
+.btn-outline-premium:hover {
+
+    color: var(--text-main);
+
+    background:
+        rgba(216, 180, 90, 0.14);
+
+    border-color:
+        var(--primary);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   PREMIUM TEXT
+   ========================================================= */
+
+.gold-text {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4dc91,
+            #d8b45a,
+            #ffe8a6
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-title {
+
+    color: var(--text-main);
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.section-subtitle {
+
+    color: var(--text-secondary);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--bg-card);
+
+    color:
+        var(--primary-light);
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    transition: all 0.3s ease;
+}
+
+
+.theme-toggle:hover {
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(216, 180, 90, 0.45);
+
+    box-shadow:
+        0 8px 25px rgba(216, 180, 90, 0.15);
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.form-control,
+.form-select {
+
+    color: var(--text-main) !important;
+
+    background:
+        rgba(255, 255, 255, 0.055) !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius: 12px !important;
+
+    padding: 12px 15px;
+}
+
+
+.form-control::placeholder {
+
+    color: var(--text-muted);
+}
+
+
+.form-control:focus,
+.form-select:focus {
+
+    border-color:
+        var(--primary) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(216, 180, 90, 0.10) !important;
+}
+
+
+/* =========================================================
+   PREMIUM BADGE
+   ========================================================= */
+
+.premium-badge {
+
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    color: var(--primary-light);
+
+    background:
+        rgba(216, 180, 90, 0.10);
+
+    border:
+        1px solid rgba(216, 180, 90, 0.20);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   GLOW EFFECTS
+   ========================================================= */
+
+.purple-glow {
+
+    box-shadow:
+        0 0 50px rgba(126, 91, 220, 0.12);
+}
+
+
+.gold-glow {
+
+    box-shadow:
+        0 0 45px rgba(216, 180, 90, 0.13);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        var(--bg-main);
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            var(--accent),
+            var(--primary)
+        );
+
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        linear-gradient(
+            var(--primary),
+            var(--accent)
+        );
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+
+    background:
+        rgba(216, 180, 90, 0.35);
+
+    color: white;
+}

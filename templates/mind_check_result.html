@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mind Check Result | MindCare AI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Mind Check Result CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/mind_check_result.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="result-header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    <i class="bi bi-flower1"></i>
+                </div>
+
+                <div>
+                    <h2>MindCare</h2>
+                    <span>AI Wellness</span>
+                </div>
+
+            </div>
+
+            <a
+                href="{{ url_for('dashboard') }}"
+                class="back-button"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Dashboard
+            </a>
+
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="result-container">
+
+            <!-- Success Icon -->
+
+            <div class="success-icon">
+                <i class="bi bi-check2-circle"></i>
+            </div>
+
+
+            <!-- Result Heading -->
+
+            <p class="result-label">
+                MIND CHECK COMPLETE
+            </p>
+
+            <h1>
+                Your Wellness Result
+            </h1>
+
+            <p class="result-subtitle">
+                Thank you for taking a moment to check in with yourself.
+            </p>
+
+
+            <!-- ================= RESULT CARD ================= -->
+
+            <section class="result-card">
+
+
+                <!-- Wellness Score -->
+
+                <div class="score-section">
+
+                    <span class="score-title">
+                        WELLNESS SCORE
+                    </span>
+
+                    <div class="score">
+                        {{ total_score }}
+                        <span>/ 32</span>
+                    </div>
+
+
+                    <!-- Progress Bar -->
+
+                    <div class="score-bar">
+
+                        <div
+                            class="score-fill"
+                            data-score="{{ score_percentage }}"
+                        ></div>
+
+                    </div>
+
+
+                    <p>
+                        Your score is based on your answers to today's
+                        wellness questions.
+                    </p>
+
+                </div>
+
+
+                <!-- ================= STRESS INDICATOR ================= -->
+
+                <div class="indicator-section">
+
+                    <div>
+
+                        <span class="indicator-title">
+                            STRESS INDICATOR
+                        </span>
+
+                        <h2>
+                            {{ result }}
+                        </h2>
+
+                    </div>
+
+
+                    <div class="stress-value">
+                        {{ stress_level }}%
+                    </div>
+
+                </div>
+
+
+                <!-- ================= MESSAGE ================= -->
+
+                <div class="message-section">
+
+                    <i class="bi bi-heart"></i>
+
+                    <div>
+
+                        <h3>
+                            A small reminder 💜
+                        </h3>
+
+                        <p>
+                            {{ message }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ACTION BUTTONS ================= -->
+
+            <div class="result-actions">
+
+                <a
+                    href="{{ url_for('dashboard') }}"
+                    class="primary-button"
+                >
+                    <i class="bi bi-grid"></i>
+                    Back to Dashboard
+                </a>
+
+
+                <a
+                    href="{{ url_for('mind_check') }}"
+                    class="secondary-button"
+                >
+                    <i class="bi bi-arrow-repeat"></i>
+                    Take Again
+                </a>
+
+            </div>
+
+
+            <!-- ================= DISCLAIMER ================= -->
+
+            <div class="disclaimer">
+
+                <i class="bi bi-info-circle"></i>
+
+                <span>
+                    This result is a general wellness indicator based on
+                    your answers. It is not a medical diagnosis.
+                </span>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= SCORE BAR SCRIPT ================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const scoreFill = document.querySelector(".score-fill");
+
+            if (scoreFill) {
+
+                const score = scoreFill.getAttribute("data-score");
+
+                scoreFill.style.width = score + "%";
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

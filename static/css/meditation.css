@@ -1,0 +1,657 @@
+/* =====================================================
+   MINDCARE AI — MEDITATION
+   ===================================================== */
+
+:root {
+
+    --bg-main: #100b1f;
+    --bg-secondary: #17102b;
+
+    --purple: #9b6cff;
+    --purple-light: #c4a7ff;
+
+    --gold: #f3c969;
+    --gold-light: #ffe7a3;
+
+    --green: #65d6a2;
+
+    --text-main: #f8f5ff;
+    --text-secondary: #c5bdd5;
+    --text-muted: #9187a3;
+
+    --border: rgba(255,255,255,0.10);
+
+    --radius: 20px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text-main);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(155,108,255,0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(243,201,105,0.08),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #0b0715,
+            #120b24 50%,
+            #0d0819
+        );
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.meditation-header {
+
+    height: 76px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(15,9,28,0.75);
+
+    backdrop-filter: blur(18px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brand-icon {
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    color: #26190a;
+
+    font-size: 20px;
+}
+
+
+.brand h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+}
+
+
+.brand span {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 0.7px;
+}
+
+
+.dashboard-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    font-size: 12px;
+}
+
+
+.dashboard-button:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+   ===================================================== */
+
+.meditation-container {
+
+    width: min(850px, 92%);
+
+    margin: 0 auto;
+
+    padding: 50px 0 70px;
+}
+
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+
+.intro-section {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.intro-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+
+.section-label {
+
+    margin: 0;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.intro-section h1 {
+
+    margin: 8px 0;
+
+    font-size: 32px;
+}
+
+
+.intro-section > p:last-child {
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ACTIVITIES
+   ===================================================== */
+
+.activities-section {
+
+    display: grid;
+
+    gap: 15px;
+}
+
+
+.activity-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        var(--border);
+}
+
+
+.activity-icon {
+
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(155,108,255,0.12);
+
+    font-size: 27px;
+}
+
+
+.activity-content {
+
+    flex: 1;
+}
+
+
+.activity-content h3 {
+
+    margin: 0 0 5px;
+
+    font-size: 16px;
+}
+
+
+.activity-content p {
+
+    margin: 0 0 6px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.activity-content span {
+
+    color: var(--purple-light);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.start-button {
+
+    padding: 10px 17px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    color: #25180a;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    font-weight: 700;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   TIMER
+   ===================================================== */
+
+.timer-section {
+
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(155,108,255,0.13),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        rgba(155,108,255,0.20);
+}
+
+
+.timer-icon {
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+
+.timer-label {
+
+    margin: 0;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+
+.timer-section h2 {
+
+    margin: 7px 0;
+
+    font-size: 22px;
+}
+
+
+.timer {
+
+    margin: 15px 0;
+
+    font-size: 58px;
+
+    font-weight: 800;
+
+    color: var(--purple-light);
+}
+
+
+.breathing-text {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    margin-bottom: 22px;
+}
+
+
+.timer-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.timer-button {
+
+    padding: 11px 18px;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.timer-button.primary {
+
+    border: none;
+
+    color: #25180a;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+}
+
+
+.timer-button.secondary {
+
+    color: var(--text-secondary);
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+}
+
+
+/* =====================================================
+   SUCCESS
+   ===================================================== */
+
+.success-section {
+
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background:
+        rgba(101,214,162,0.08);
+
+    border:
+        1px solid
+        rgba(101,214,162,0.18);
+}
+
+
+.success-icon {
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: var(--green);
+
+    background:
+        rgba(101,214,162,0.12);
+
+    font-size: 30px;
+}
+
+
+.success-section h2 {
+
+    margin: 0 0 8px;
+
+    font-size: 22px;
+}
+
+
+.success-section p {
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+.again-button {
+
+    margin-top: 12px;
+
+    padding: 11px 17px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    color: #25180a;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .meditation-header {
+
+        padding: 0 18px;
+    }
+
+
+    .meditation-container {
+
+        width: 92%;
+
+        padding-top: 35px;
+    }
+
+
+    .intro-section h1 {
+
+        font-size: 25px;
+    }
+
+
+    .activity-card {
+
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .activity-content {
+
+        min-width: 180px;
+    }
+
+
+    .start-button {
+
+        margin-left: 71px;
+    }
+
+
+    .timer {
+
+        font-size: 46px;
+    }
+
+
+    .timer-actions {
+
+        flex-direction: column;
+    }
+
+
+    .timer-button {
+
+        width: 100%;
+    }
+
+}

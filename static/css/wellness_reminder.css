@@ -1,0 +1,857 @@
+/* =====================================================
+   MINDCARE AI - SMART WELLNESS REMINDER
+   ===================================================== */
+
+
+/* ================= GLOBAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #101116;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: #181a22;
+
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-right: 1px solid #252733;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 10px;
+    margin-bottom: 35px;
+}
+
+.logo span {
+    font-size: 30px;
+}
+
+.logo h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* Navigation */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a,
+.sidebar-bottom a {
+    text-decoration: none;
+    color: #9295a3;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    transition: 0.25s ease;
+
+    display: block;
+}
+
+.sidebar nav a:hover,
+.sidebar-bottom a:hover {
+    background: #22242e;
+    color: #ffffff;
+}
+
+
+/* Active Link */
+
+.sidebar nav a.active {
+    background: #6c63ff;
+    color: #ffffff;
+}
+
+
+/* Bottom */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-bottom a:hover {
+    background: #3a2024;
+    color: #ff7b7b;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    margin-left: 250px;
+
+    padding: 35px 40px;
+
+    min-height: 100vh;
+
+    max-width: 1200px;
+}
+
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #9295a3;
+    font-size: 15px;
+}
+
+
+/* ================= REMINDER CARD ================= */
+
+.reminder-card {
+    background: #181a22;
+
+    border: 1px solid #252733;
+
+    border-radius: 16px;
+
+    padding: 28px;
+
+    margin-bottom: 35px;
+}
+
+
+/* Card Title */
+
+.card-title {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.title-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 14px;
+
+    background: #242235;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+.card-title h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card-title p {
+    color: #9295a3;
+    font-size: 14px;
+}
+
+
+/* ================= FORM ================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #d7d8df;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* Inputs */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    background: #101116;
+
+    color: #ffffff;
+
+    border: 1px solid #30323d;
+
+    border-radius: 10px;
+
+    padding: 13px 14px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #6c63ff;
+
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.12);
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #676a77;
+}
+
+
+/* Select */
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #181a22;
+    color: #ffffff;
+}
+
+
+/* Textarea */
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 100px;
+}
+
+
+/* ================= FORM ROW ================= */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* ================= SAVE BUTTON ================= */
+
+.save-btn {
+    width: 100%;
+
+    border: none;
+
+    background: #6c63ff;
+
+    color: #ffffff;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.save-btn:hover {
+    background: #7b73ff;
+
+    transform: translateY(-1px);
+}
+
+.save-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ================= SAVED SECTION ================= */
+
+.saved-section {
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+
+    margin-bottom: 6px;
+}
+
+.section-heading p {
+    color: #9295a3;
+
+    font-size: 14px;
+}
+
+
+/* ================= REMINDER LIST ================= */
+
+.reminder-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* ================= REMINDER ITEM ================= */
+
+.reminder-item {
+    background: #181a22;
+
+    border: 1px solid #252733;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* Reminder Information */
+
+.reminder-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-width: 0;
+}
+
+.reminder-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #242235;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.reminder-details h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.reminder-details p {
+    color: #9295a3;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.reminder-time {
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* ================= REMINDER ACTIONS ================= */
+
+.reminder-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+/* Action Buttons */
+
+.action-btn {
+    border: none;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.edit-btn {
+    background: #292a35;
+
+    color: #ffffff;
+}
+
+.edit-btn:hover {
+    background: #363744;
+}
+
+.delete-btn {
+    background: #3a2024;
+
+    color: #ff8080;
+}
+
+.delete-btn:hover {
+    background: #4b272c;
+}
+
+
+/* ================= TOGGLE ================= */
+
+.toggle-container {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.toggle {
+    position: relative;
+
+    width: 44px;
+    height: 24px;
+}
+
+.toggle input {
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+
+    cursor: pointer;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: #30323d;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+.toggle input:checked + .slider {
+    background: #6c63ff;
+}
+
+.toggle input:checked + .slider::before {
+    transform: translateX(20px);
+}
+
+
+/* ================= EMPTY STATE ================= */
+
+.empty-state {
+    background: #181a22;
+
+    border: 1px dashed #30323d;
+
+    border-radius: 14px;
+
+    padding: 45px 20px;
+
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+.empty-state p {
+    color: #9295a3;
+
+    font-size: 14px;
+}
+
+
+/* ================= SUCCESS / ERROR MESSAGE ================= */
+
+.message {
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    display: none;
+}
+
+.message.success {
+    background: #183524;
+
+    color: #78e6a2;
+
+    border: 1px solid #285c3d;
+}
+
+.message.error {
+    background: #3a2024;
+
+    color: #ff8585;
+
+    border: 1px solid #633238;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+
+        padding: 30px 25px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #252733;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .sidebar nav a {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        margin-top: 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        padding: 25px 18px;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .reminder-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .reminder-actions {
+        width: 100%;
+
+        justify-content: flex-end;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .main-content {
+        padding: 20px 14px;
+    }
+
+    .reminder-card {
+        padding: 20px 16px;
+    }
+
+    .card-title {
+        align-items: flex-start;
+    }
+
+    .card-title h2 {
+        font-size: 18px;
+    }
+
+    .reminder-info {
+        align-items: flex-start;
+    }
+
+    .reminder-actions {
+        flex-wrap: wrap;
+    }
+
+}
+/* ================= TIME SELECTOR ================= */
+
+.time-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.time-selector select {
+    width: 100%;
+    background: #101116;
+    color: #ffffff;
+    border: 1px solid #30323d;
+    border-radius: 10px;
+    padding: 13px 14px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.time-selector select:focus {
+    border-color: #6c63ff;
+}
+
+.time-selector select option {
+    background: #181a22;
+    color: #ffffff;
+}
+
+@media (max-width: 500px) {
+
+    .time-selector {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+   REMINDER POPUP
+   ===================================================== */
+
+.wellness-popup-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 99999;
+
+    padding: 20px;
+}
+
+
+.wellness-popup {
+    width: 100%;
+
+    max-width: 430px;
+
+    background: #181a22;
+
+    border: 1px solid #6c63ff;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+
+.popup-icon {
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+
+.wellness-popup h2 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+
+.wellness-popup h3 {
+    font-size: 18px;
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+}
+
+
+.wellness-popup p {
+    color: #9295a3;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
+.wellness-popup button {
+    width: 100%;
+
+    border: none;
+
+    background: #6c63ff;
+
+    color: #ffffff;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.wellness-popup button:hover {
+    background: #7b73ff;
+}

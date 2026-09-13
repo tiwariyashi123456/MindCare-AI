@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Journal | MindCare AI</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Journal CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/journal.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="journal-wrapper">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
+
+            <div>
+                <h3>MindCare</h3>
+                <span>AI Wellness</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a href="/dashboard" class="menu-link">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="/mind-check" class="menu-link">
+                <i class="bi bi-heart-pulse"></i>
+                <span>Mind Check</span>
+            </a>
+
+
+            <a href="/meditation" class="menu-link">
+                <i class="bi bi-wind"></i>
+                <span>Meditation</span>
+            </a>
+
+
+            <a href="/exercise" class="menu-link">
+                <i class="bi bi-activity"></i>
+                <span>Exercise</span>
+            </a>
+
+
+            <a href="/yoga" class="menu-link">
+                <i class="bi bi-person-arms-up"></i>
+                <span>Yoga</span>
+            </a>
+
+
+            <a href="/wellness-reminder" class="menu-link">
+                <i class="bi bi-bell"></i>
+                <span>Wellness Reminder</span>
+            </a>
+
+
+            <a href="/journal" class="menu-link active">
+                <i class="bi bi-journal-text"></i>
+                <span>Journal</span>
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+                <strong>Your wellbeing matters</strong>
+
+                <p>
+                    Write your thoughts and take care of your mind.
+                </p>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('logout') }}"
+                class="logout-link"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="page-label">
+                    YOUR PRIVATE SPACE
+                </span>
+
+
+                <h1>
+                    My Journal 📔
+                </h1>
+
+
+                <p>
+                    Write down your thoughts, feelings and daily experiences.
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile-mini">
+
+                <div class="profile-avatar">
+
+                    {{ user_name[0]|upper }}
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        {{ user_name }}
+                    </strong>
+
+                    <span>
+                        Wellness Member
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             JOURNAL CONTAINER
+        ========================== -->
+
+        <section class="journal-container">
+
+
+            <!-- =========================
+                 WRITE JOURNAL
+            ========================== -->
+
+            <div class="journal-card">
+
+
+                <!-- CARD HEADING -->
+
+                <div class="card-heading">
+
+                    <div class="heading-icon">
+
+                        <i class="bi bi-pencil-square"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Write Your Journal
+                        </h2>
+
+                        <p>
+                            Take a moment to express how you feel.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JOURNAL FORM -->
+
+                <form id="journalForm">
+
+
+                    <!-- TITLE -->
+
+                    <div class="form-group">
+
+                        <label for="journalTitle">
+                            Journal Title
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="journalTitle"
+                            name="title"
+                            placeholder="e.g. My peaceful evening"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- MOOD -->
+
+                    <div class="form-group">
+
+                        <label for="journalMood">
+                            How are you feeling?
+                        </label>
+
+
+                        <select
+                            id="journalMood"
+                            name="mood"
+                        >
+
+                            <option value="Happy">
+                                😊 Happy
+                            </option>
+
+                            <option value="Calm">
+                                😌 Calm
+                            </option>
+
+                            <option
+                                value="Okay"
+                                selected
+                            >
+                                🙂 Okay
+                            </option>
+
+                            <option value="Sad">
+                                😔 Sad
+                            </option>
+
+                            <option value="Stressed">
+                                😣 Stressed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- CONTENT -->
+
+                    <div class="form-group">
+
+                        <label for="journalContent">
+                            Your Thoughts
+                        </label>
+
+
+                        <textarea
+                            id="journalContent"
+                            name="content"
+                            rows="9"
+                            placeholder="Write whatever is on your mind..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- SAVE BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                        id="saveJournalBtn"
+                    >
+
+                        <i class="bi bi-save"></i>
+
+                        Save Journal
+
+                    </button>
+
+                </form>
+
+
+
+                <!-- MESSAGE -->
+
+                <div id="journalMessage"></div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SAVED JOURNALS
+            ========================== -->
+
+            <div class="saved-section">
+
+
+                <!-- SECTION HEADING -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span>
+                            YOUR ENTRIES
+                        </span>
+
+                        <h2>
+                            My Journal Entries
+                        </h2>
+
+                    </div>
+
+
+                    <!-- ENTRY COUNT -->
+
+                    <div class="entry-count">
+
+                        {{ entries|length }}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JOURNAL ENTRIES -->
+
+                <div id="journalEntries">
+
+
+                    {% if entries %}
+
+
+                        {% for entry in entries %}
+
+
+                        <!-- ENTRY CARD -->
+
+                        <div
+                            class="entry-card"
+                            id="entry-{{ entry.id }}"
+                        >
+
+
+                            <!-- ENTRY TOP -->
+
+                            <div class="entry-top">
+
+
+                                <div>
+
+                                    <h3>
+                                        {{ entry.title }}
+                                    </h3>
+
+
+                                    <small>
+                                        {{ entry.created_at }}
+                                    </small>
+
+                                </div>
+
+
+
+                                <!-- MOOD -->
+
+                                <span class="mood-badge">
+
+                                    {{ entry.mood or "Okay" }}
+
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- ENTRY CONTENT -->
+
+                            <p class="entry-content">
+
+                                {{ entry.content }}
+
+                            </p>
+
+
+
+                            <!-- DELETE BUTTON -->
+
+                            <button
+                                type="button"
+                                class="delete-button"
+                                data-entry-id="{{ entry.id }}"
+                            >
+
+                                <i class="bi bi-trash3"></i>
+
+                                Delete
+
+                            </button>
+
+
+                        </div>
+
+
+                        {% endfor %}
+
+
+                    {% else %}
+
+
+                        <!-- EMPTY STATE -->
+
+                        <div class="empty-state">
+
+
+                            <div class="empty-icon">
+
+                                <i class="bi bi-journal"></i>
+
+                            </div>
+
+
+                            <h3>
+                                No journal entries yet
+                            </h3>
+
+
+                            <p>
+
+                                Your thoughts will appear here after
+                                you save your first journal entry.
+
+                            </p>
+
+
+                        </div>
+
+
+                    {% endif %}
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================
+     JOURNAL JAVASCRIPT
+========================== -->
+
+<script
+    src="{{ url_for('static', filename='js/journal.js') }}"
+></script>
+
+
+</body>
+
+</html>

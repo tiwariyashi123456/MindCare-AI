@@ -1,0 +1,1779 @@
+/* =========================================================
+   MINDCARE AI
+   PREMIUM PURPLE + GOLD WELLNESS UI
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(139, 92, 246, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(216, 180, 90, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(98, 214, 176, 0.07),
+            transparent 30%
+        ),
+        var(--bg-main);
+
+    color: var(--text-main);
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    transition:
+        background 0.4s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.premium-navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    padding: 17px 0;
+
+    background:
+        rgba(23, 19, 41, 0.78);
+
+    border-bottom:
+        1px solid var(--border);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+[data-theme="light"] .premium-navbar {
+
+    background:
+        rgba(244, 239, 255, 0.82);
+}
+
+
+/* Brand */
+
+.premium-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color:
+        var(--text-main) !important;
+
+    font-size: 1.45rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+
+    text-decoration: none;
+}
+
+
+.premium-brand:hover {
+
+    color:
+        var(--primary-light) !important;
+}
+
+
+.brand-logo {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(216, 180, 90, 0.20),
+            rgba(126, 91, 220, 0.20)
+        );
+
+    border:
+        1px solid rgba(216, 180, 90, 0.25);
+
+    box-shadow:
+        0 8px 25px rgba(216, 180, 90, 0.10);
+}
+
+
+.premium-brand small {
+
+    color:
+        var(--primary);
+
+    font-size: 0.75rem;
+
+    margin-left: 2px;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--bg-card);
+
+    color:
+        var(--primary-light);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 1.05rem;
+
+    transition: all 0.3s ease;
+}
+
+
+.theme-toggle:hover {
+
+    transform:
+        translateY(-2px)
+        rotate(5deg);
+
+    border-color:
+        rgba(216, 180, 90, 0.45);
+
+    box-shadow:
+        0 8px 25px rgba(216, 180, 90, 0.15);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-premium {
+
+    border: none !important;
+
+    color: #261d10 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2da91,
+            #d8b45a,
+            #b99236
+        ) !important;
+
+    padding: 11px 21px;
+
+    border-radius: 13px !important;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(216, 180, 90, 0.20);
+
+    transition: all 0.3s ease;
+}
+
+
+.btn-premium:hover {
+
+    transform:
+        translateY(-3px);
+
+    color: #171329 !important;
+
+    box-shadow:
+        0 15px 35px rgba(216, 180, 90, 0.35);
+}
+
+
+.btn-outline-premium {
+
+    color:
+        var(--primary-light) !important;
+
+    background:
+        rgba(216, 180, 90, 0.055) !important;
+
+    border:
+        1px solid rgba(216, 180, 90, 0.40) !important;
+
+    padding: 10px 20px;
+
+    border-radius: 13px !important;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+
+.btn-outline-premium:hover {
+
+    color:
+        var(--text-main) !important;
+
+    background:
+        rgba(216, 180, 90, 0.13) !important;
+
+    border-color:
+        var(--primary) !important;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.premium-hero {
+
+    min-height: 730px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    padding:
+        100px 0
+        110px;
+
+    overflow: hidden;
+}
+
+
+/* Purple Glow */
+
+.premium-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    left: -180px;
+
+    top: 80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(126, 91, 220, 0.16);
+
+    filter:
+        blur(100px);
+
+    pointer-events: none;
+}
+
+
+/* Gold Glow */
+
+.premium-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    right: -120px;
+
+    bottom: 10px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216, 180, 90, 0.10);
+
+    filter:
+        blur(100px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PREMIUM BADGE
+   ========================================================= */
+
+.premium-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding:
+        9px 15px;
+
+    border-radius: 30px;
+
+    color:
+        var(--primary-light);
+
+    background:
+        rgba(216, 180, 90, 0.08);
+
+    border:
+        1px solid rgba(216, 180, 90, 0.20);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    box-shadow:
+        0 8px 25px rgba(216, 180, 90, 0.05);
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.hero-title {
+
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        var(--text-main);
+
+    font-size:
+        clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 1.03;
+
+    font-weight: 850;
+
+    letter-spacing: -2.5px;
+
+    margin:
+        25px 0;
+}
+
+
+.gold-text {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5dc91,
+            #d8b45a,
+            #ffe9a8
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.hero-text {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 1.1rem;
+
+    line-height: 1.85;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+.hero-buttons .btn {
+
+    min-height: 52px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   HERO TRUST
+   ========================================================= */
+
+.hero-trust {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 0.88rem;
+}
+
+
+.hero-trust span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.hero-trust i {
+
+    color:
+        var(--mint);
+}
+
+
+/* =========================================================
+   WELLNESS CARD
+   ========================================================= */
+
+.premium-wellness-card {
+
+    position: relative;
+
+    padding: 40px 34px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.13);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    animation:
+        floatingCard 5s ease-in-out infinite;
+}
+
+
+[data-theme="light"] .premium-wellness-card {
+
+    background:
+        rgba(255,255,255,0.78);
+
+    border-color:
+        rgba(95,70,160,0.12);
+
+    box-shadow:
+        0 30px 70px rgba(70,50,130,0.13);
+}
+
+
+@keyframes floatingCard {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Glow inside card */
+
+.card-glow {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    right: -70px;
+
+    top: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(126,91,220,0.20);
+
+    filter:
+        blur(50px);
+}
+
+
+/* Wellness Icon */
+
+.wellness-icon {
+
+    position: relative;
+
+    width: 90px;
+
+    height: 90px;
+
+    margin:
+        0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 3rem;
+
+    border-radius: 27px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(126,91,220,0.18),
+            rgba(216,180,90,0.10)
+        );
+
+    border:
+        1px solid rgba(216,180,90,0.18);
+
+    box-shadow:
+        0 15px 40px rgba(126,91,220,0.12);
+}
+
+
+.small-label {
+
+    color:
+        var(--primary-light);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+
+.premium-wellness-card h3 {
+
+    color:
+        var(--text-main);
+
+    font-size: 1.75rem;
+
+    font-weight: 800;
+
+    margin:
+        12px 0 8px;
+}
+
+
+.premium-wellness-card > p {
+
+    color:
+        var(--text-secondary);
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   WELLNESS SCORE
+   ========================================================= */
+
+.wellness-score-box {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    text-align: left;
+
+    padding: 17px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid var(--border);
+
+    margin-bottom: 12px;
+}
+
+
+.wellness-score-box span {
+
+    display: block;
+
+    color:
+        var(--text-muted);
+
+    font-size: 0.78rem;
+
+    margin-bottom: 4px;
+}
+
+
+.wellness-score-box strong {
+
+    color:
+        var(--mint);
+
+    font-size: 0.95rem;
+}
+
+
+.score-number {
+
+    color:
+        var(--primary-light);
+
+    font-size: 2rem;
+
+    font-weight: 800;
+}
+
+
+/* Progress */
+
+.premium-progress {
+
+    height: 9px !important;
+
+    background:
+        rgba(255,255,255,0.07) !important;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+}
+
+
+.premium-progress .progress-bar {
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b6be8,
+            #d8b45a
+        );
+
+    border-radius: 30px;
+}
+
+
+/* =========================================================
+   MINI STATS
+   ========================================================= */
+
+.mini-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+
+.mini-stats > div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 14px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border:
+        1px solid var(--border);
+
+    text-align: left;
+}
+
+
+.mini-stats i {
+
+    color:
+        var(--accent-light);
+
+    font-size: 1.1rem;
+
+    margin-bottom: 5px;
+}
+
+
+.mini-stats span {
+
+    color:
+        var(--text-muted);
+
+    font-size: 0.72rem;
+}
+
+
+.mini-stats strong {
+
+    color:
+        var(--text-main);
+
+    font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   FEATURES SECTION
+   ========================================================= */
+
+.premium-features {
+
+    position: relative;
+
+    padding:
+        110px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,16,38,0.30),
+            rgba(29,21,52,0.72)
+        );
+}
+
+
+[data-theme="light"] .premium-features {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(235,227,255,0.45),
+            rgba(244,239,255,0.8)
+        );
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+
+    max-width: 780px;
+
+    margin:
+        0 auto 55px;
+}
+
+
+.section-heading h2 {
+
+    color:
+        var(--text-main);
+
+    font-size:
+        clamp(2rem, 4vw, 3.25rem);
+
+    font-weight: 850;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+
+.section-heading p {
+
+    color:
+        var(--text-secondary);
+
+    line-height: 1.7;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.feature-card {
+
+    position: relative;
+
+    height: 100%;
+
+    padding: 31px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.085),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid var(--border);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+[data-theme="light"] .feature-card {
+
+    background:
+        rgba(255,255,255,0.75);
+}
+
+
+.feature-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+
+    height: 140px;
+
+    right: -70px;
+
+    top: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(126,91,220,0.13);
+
+    filter:
+        blur(35px);
+
+    pointer-events: none;
+}
+
+
+.feature-card:hover {
+
+    transform:
+        translateY(-9px);
+
+    border-color:
+        rgba(216,180,90,0.28);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.22),
+        0 0 35px rgba(126,91,220,0.07);
+}
+
+
+/* Feature Icon */
+
+.feature-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    font-size: 1.55rem;
+
+    margin-bottom: 22px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.feature-card:hover .feature-icon {
+
+    transform:
+        scale(1.08)
+        rotate(-4deg);
+}
+
+
+/* Purple */
+
+.premium-icon.purple {
+
+    color: #bba7ff;
+
+    background:
+        rgba(139,92,246,0.13);
+
+    border:
+        1px solid rgba(139,92,246,0.20);
+}
+
+
+/* Mint */
+
+.premium-icon.mint {
+
+    color: #72dfbb;
+
+    background:
+        rgba(98,214,176,0.12);
+
+    border:
+        1px solid rgba(98,214,176,0.20);
+}
+
+
+/* Gold */
+
+.premium-icon.gold {
+
+    color: #f0d487;
+
+    background:
+        rgba(216,180,90,0.12);
+
+    border:
+        1px solid rgba(216,180,90,0.20);
+}
+
+
+/* Blue */
+
+.premium-icon.blue {
+
+    color: #8abaff;
+
+    background:
+        rgba(90,150,240,0.12);
+
+    border:
+        1px solid rgba(90,150,240,0.20);
+}
+
+
+/* Pink */
+
+.premium-icon.pink {
+
+    color: #ef9bc5;
+
+    background:
+        rgba(225,100,160,0.12);
+
+    border:
+        1px solid rgba(225,100,160,0.20);
+}
+
+
+/* Orange */
+
+.premium-icon.orange {
+
+    color: #ffc17c;
+
+    background:
+        rgba(240,150,70,0.12);
+
+    border:
+        1px solid rgba(240,150,70,0.20);
+}
+
+
+.feature-number {
+
+    position: absolute;
+
+    right: 25px;
+
+    top: 25px;
+
+    color:
+        rgba(255,255,255,0.18);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+[data-theme="light"] .feature-number {
+
+    color:
+        rgba(50,35,80,0.18);
+}
+
+
+.feature-card h4 {
+
+    color:
+        var(--text-main);
+
+    font-size: 1.25rem;
+
+    font-weight: 750;
+
+    margin-bottom: 10px;
+}
+
+
+.feature-card p {
+
+    color:
+        var(--text-secondary);
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+/* Feature Link */
+
+.feature-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color:
+        var(--primary-light);
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+
+.feature-link:hover {
+
+    color:
+        var(--primary);
+
+    gap: 11px;
+}
+
+
+/* =========================================================
+   WHY MINDCARE SECTION
+   ========================================================= */
+
+.why-section {
+
+    position: relative;
+
+    padding:
+        110px 0;
+
+    overflow: hidden;
+}
+
+
+.why-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    left: -100px;
+
+    bottom: 20px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(126,91,220,0.10);
+
+    filter:
+        blur(80px);
+
+    pointer-events: none;
+}
+
+
+.why-points {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 28px;
+}
+
+
+.why-point {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color:
+        var(--text-secondary);
+
+    font-weight: 600;
+}
+
+
+.why-point > div {
+
+    width: 31px;
+
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--mint);
+
+    background:
+        rgba(98,214,176,0.10);
+
+    border:
+        1px solid rgba(98,214,176,0.18);
+}
+
+
+/* =========================================================
+   FLOATING INFO CARD
+   ========================================================= */
+
+.floating-info-card {
+
+    position: relative;
+
+    padding: 38px;
+
+    border-radius: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(126,91,220,0.16),
+            rgba(216,180,90,0.07)
+        );
+
+    border:
+        1px solid rgba(216,180,90,0.17);
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,0.20);
+
+    overflow: hidden;
+}
+
+
+[data-theme="light"] .floating-info-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(126,91,220,0.10),
+            rgba(216,180,90,0.08)
+        );
+
+    box-shadow:
+        0 25px 60px rgba(70,50,130,0.12);
+}
+
+
+.floating-info-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    right: -80px;
+
+    bottom: -80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216,180,90,0.10);
+
+    filter:
+        blur(45px);
+}
+
+
+.floating-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    font-size: 1.7rem;
+
+    background:
+        rgba(216,180,90,0.10);
+
+    border:
+        1px solid rgba(216,180,90,0.20);
+
+    margin-bottom: 20px;
+}
+
+
+.floating-info-card h4 {
+
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        var(--text-main);
+
+    font-size: 1.6rem;
+
+    line-height: 1.35;
+
+    font-weight: 800;
+
+    margin-bottom: 13px;
+}
+
+
+.floating-info-card p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        var(--text-secondary);
+
+    line-height: 1.75;
+
+    margin-bottom: 24px;
+}
+
+
+.floating-info-card .btn {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.premium-footer {
+
+    padding:
+        30px 0;
+
+    background:
+        rgba(10,7,20,0.55);
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+[data-theme="light"] .premium-footer {
+
+    background:
+        rgba(232,225,250,0.70);
+}
+
+
+.footer-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+.footer-brand {
+
+    color:
+        var(--text-main);
+
+    font-weight: 800;
+
+    font-size: 1.05rem;
+}
+
+
+.premium-footer p {
+
+    color:
+        var(--text-muted);
+
+    font-size: 0.8rem;
+
+    margin:
+        5px 0 0;
+}
+
+
+.footer-right {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   GENERAL UTILITIES
+   ========================================================= */
+
+.section-title {
+
+    color:
+        var(--text-main);
+
+    font-weight: 850;
+}
+
+
+.section-subtitle {
+
+    color:
+        var(--text-secondary);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .premium-hero {
+
+        min-height: auto;
+
+        padding:
+            80px 0 90px;
+
+        text-align: center;
+    }
+
+
+    .hero-text {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-trust {
+
+        justify-content: center;
+    }
+
+
+    .premium-wellness-card {
+
+        max-width: 500px;
+
+        margin:
+            25px auto 0;
+    }
+
+
+    .why-section {
+
+        text-align: center;
+    }
+
+
+    .why-points {
+
+        align-items: center;
+    }
+
+
+    .floating-info-card {
+
+        max-width: 600px;
+
+        margin:
+            0 auto;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .premium-navbar {
+
+        padding:
+            13px 0;
+    }
+
+
+    .premium-brand {
+
+        font-size: 1.15rem;
+    }
+
+
+    .brand-logo {
+
+        width: 38px;
+
+        height: 38px;
+    }
+
+
+    .premium-navbar .btn-premium,
+    .premium-navbar .btn-outline-premium {
+
+        padding:
+            8px 12px;
+
+        font-size:
+            0.78rem;
+    }
+
+
+    .theme-toggle {
+
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    .premium-hero {
+
+        padding:
+            65px 0 80px;
+    }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(2.7rem, 12vw, 4rem);
+
+        letter-spacing:
+            -1.5px;
+    }
+
+
+    .hero-text {
+
+        font-size:
+            1rem;
+    }
+
+
+    .premium-features,
+    .why-section {
+
+        padding:
+            80px 0;
+    }
+
+
+    .section-heading {
+
+        margin-bottom:
+            40px;
+    }
+
+
+    .feature-card {
+
+        padding:
+            27px;
+    }
+
+
+    .footer-content {
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+    }
+
+
+    .footer-right {
+
+        justify-content:
+            center;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .premium-brand small {
+
+        display: none;
+    }
+
+
+    .premium-navbar .btn-outline-premium {
+
+        display: none;
+    }
+
+
+    .hero-buttons .btn {
+
+        width:
+            100%;
+    }
+
+
+    .hero-trust {
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        gap: 9px;
+    }
+
+
+    .premium-wellness-card {
+
+        padding:
+            32px 20px;
+    }
+
+
+    .mini-stats {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .floating-info-card {
+
+        padding:
+            28px 22px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+a:focus-visible,
+button:focus-visible {
+
+    outline:
+        2px solid var(--primary);
+
+    outline-offset:
+        3px;
+}

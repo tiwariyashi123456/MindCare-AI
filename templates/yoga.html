@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Yoga | MindCare AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/yoga.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="yoga-page">
+
+
+        <!-- ==============================
+             Header
+             ============================== -->
+
+        <header class="yoga-header">
+
+            <div class="header-content">
+
+                <h1>🧘‍♀️ Yoga</h1>
+
+                <p>
+                    Relax your body, calm your mind,
+                    and improve your well-being.
+                </p>
+
+            </div>
+
+
+            <a href="{{ url_for('dashboard') }}"
+               class="back-btn">
+
+                ← Dashboard
+
+            </a>
+
+        </header>
+
+
+
+        <!-- ==============================
+             Introduction
+             ============================== -->
+
+        <section class="intro-card">
+
+            <h2>
+                Choose a Yoga Session
+            </h2>
+
+            <p>
+                Select a beginner-friendly yoga activity
+                and practice it at your own comfortable pace.
+            </p>
+
+        </section>
+
+
+
+        <!-- ==============================
+             Yoga Cards
+             ============================== -->
+
+        <section class="yoga-grid">
+
+
+            <!-- Easy Pose -->
+
+            <div class="yoga-card">
+
+                <div class="yoga-icon">
+                    🧘
+                </div>
+
+                <h3>
+                    Easy Pose
+                </h3>
+
+                <p>
+                    A simple seated pose that can help you
+                    relax and focus on your breathing.
+                </p>
+
+                <div class="yoga-info">
+
+                    <span>
+                        ⏱️ 3 Minutes
+                    </span>
+
+                    <span>
+                        🌱 Beginner
+                    </span>
+
+                </div>
+
+                <button
+                    class="start-yoga"
+                    data-yoga="Easy Pose"
+                    data-duration="3">
+
+                    Start Yoga
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Child's Pose -->
+
+            <div class="yoga-card">
+
+                <div class="yoga-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Child's Pose
+                </h3>
+
+                <p>
+                    A gentle resting pose that encourages
+                    relaxation and comfortable breathing.
+                </p>
+
+                <div class="yoga-info">
+
+                    <span>
+                        ⏱️ 5 Minutes
+                    </span>
+
+                    <span>
+                        🌱 Beginner
+                    </span>
+
+                </div>
+
+                <button
+                    class="start-yoga"
+                    data-yoga="Child's Pose"
+                    data-duration="5">
+
+                    Start Yoga
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Tree Pose -->
+
+            <div class="yoga-card">
+
+                <div class="yoga-icon">
+                    🌳
+                </div>
+
+                <h3>
+                    Tree Pose
+                </h3>
+
+                <p>
+                    A balance-focused pose that encourages
+                    concentration and body awareness.
+                </p>
+
+                <div class="yoga-info">
+
+                    <span>
+                        ⏱️ 3 Minutes
+                    </span>
+
+                    <span>
+                        🌱 Beginner
+                    </span>
+
+                </div>
+
+                <button
+                    class="start-yoga"
+                    data-yoga="Tree Pose"
+                    data-duration="3">
+
+                    Start Yoga
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Cat Cow -->
+
+            <div class="yoga-card">
+
+                <div class="yoga-icon">
+                    🐈
+                </div>
+
+                <h3>
+                    Cat-Cow Stretch
+                </h3>
+
+                <p>
+                    A gentle movement that helps improve
+                    flexibility and body awareness.
+                </p>
+
+                <div class="yoga-info">
+
+                    <span>
+                        ⏱️ 5 Minutes
+                    </span>
+
+                    <span>
+                        🌱 Beginner
+                    </span>
+
+                </div>
+
+                <button
+                    class="start-yoga"
+                    data-yoga="Cat-Cow Stretch"
+                    data-duration="5">
+
+                    Start Yoga
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==============================
+             Yoga Timer
+             ============================== -->
+
+        <section class="timer-section"
+                 id="timerSection">
+
+
+            <h2 id="selectedYoga">
+                Yoga Timer
+            </h2>
+
+
+            <div class="timer"
+                 id="timer">
+
+                00:00
+
+            </div>
+
+
+            <p id="timerMessage">
+
+                Select a yoga activity above
+                to begin.
+
+            </p>
+
+
+
+            <!-- Timer Controls -->
+
+            <div class="timer-buttons">
+
+
+                <button id="startTimer">
+
+                    ▶ Start
+
+                </button>
+
+
+                <button id="pauseTimer">
+
+                    ⏸ Pause
+
+                </button>
+
+
+                <button id="resetTimer">
+
+                    🔄 Reset
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- Complete Button -->
+
+            <button
+                id="completeYoga"
+                class="complete-btn"
+                disabled>
+
+                ✅ Complete Yoga Session
+
+            </button>
+
+
+
+            <!-- Message -->
+
+            <div id="yogaMessage"
+                 class="yoga-message">
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- ==============================
+         JavaScript
+         ============================== -->
+
+    <script src="{{ url_for('static',
+                 filename='js/yoga.js') }}">
+    </script>
+
+
+</body>
+
+</html>

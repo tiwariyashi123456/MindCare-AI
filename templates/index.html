@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindCare AI | Mental Wellness Companion</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Theme -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/theme.css') }}">
+
+    <!-- Existing Style -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Health Report Style -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/health_report.css') }}">
+
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg premium-navbar">
+
+    <div class="container">
+
+        <!-- Logo -->
+
+        <a class="navbar-brand premium-brand" href="/">
+
+            <span class="brand-logo">
+                🌿
+            </span>
+
+            <span>
+                MindCare
+                <small>AI</small>
+            </span>
+
+        </a>
+
+
+        <!-- Right Actions -->
+
+        <div class="d-flex align-items-center gap-2">
+
+            <!-- Theme Button -->
+
+            <button
+                type="button"
+                id="themeToggle"
+                class="theme-toggle"
+                title="Switch Theme">
+
+                <i class="bi bi-moon-stars-fill"></i>
+
+            </button>
+
+
+            <!-- Login -->
+
+            <a
+                href="/login"
+                class="btn btn-outline-premium">
+
+                <i class="bi bi-box-arrow-in-right me-1"></i>
+
+                Login
+
+            </a>
+
+
+            <!-- Signup -->
+
+            <a
+                href="/signup"
+                class="btn btn-premium">
+
+                Get Started
+
+                <i class="bi bi-arrow-right ms-1"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero-section premium-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- LEFT CONTENT -->
+
+            <div class="col-lg-7">
+
+
+                <!-- Badge -->
+
+                <span class="premium-badge mb-4">
+
+                    <i class="bi bi-stars me-1"></i>
+
+                    AI-Powered Mental Wellness Companion
+
+                </span>
+
+
+                <!-- Heading -->
+
+                <h1 class="hero-title">
+
+                    Take Care of Your
+
+                    <span class="gold-text">
+                        Mind.
+                    </span>
+
+                </h1>
+
+
+                <!-- Description -->
+
+                <p class="hero-text">
+
+                    MindCare AI helps you understand your
+                    mood, manage everyday stress, build
+                    healthy routines and practice simple
+                    wellness activities.
+
+                </p>
+
+
+                <!-- Buttons -->
+
+                <div class="hero-buttons d-flex flex-wrap gap-3">
+
+
+                    <a
+                        href="/signup"
+                        class="btn btn-premium btn-lg">
+
+                        <i class="bi bi-heart-pulse me-2"></i>
+
+                        Start Your Wellness Journey
+
+                    </a>
+
+
+                    <a
+                        href="#features"
+                        class="btn btn-outline-premium btn-lg">
+
+                        Explore Features
+
+                        <i class="bi bi-arrow-down ms-2"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Trust Points -->
+
+                <div class="hero-trust mt-4">
+
+                    <span>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Simple to use
+
+                    </span>
+
+                    <span>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Daily wellness
+
+                    </span>
+
+                    <span>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Progress tracking
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RIGHT WELLNESS CARD -->
+
+            <div class="col-lg-5">
+
+
+                <div class="wellness-card premium-wellness-card">
+
+
+                    <!-- Decorative Glow -->
+
+                    <div class="card-glow"></div>
+
+
+                    <!-- Brain Icon -->
+
+                    <div class="wellness-icon">
+
+                        🧠
+
+                    </div>
+
+
+                    <span class="small-label">
+
+                        YOUR WELLNESS SPACE
+
+                    </span>
+
+
+                    <h3>
+
+                        Your Mind Matters
+
+                    </h3>
+
+
+                    <p>
+
+                        Understand. Manage.
+                        Practice. Improve.
+
+                    </p>
+
+
+                    <!-- Wellness Score -->
+
+                    <div class="wellness-score-box">
+
+                        <div>
+
+                            <span>
+                                Today's Wellness
+                            </span>
+
+                            <strong>
+                                Good
+                            </strong>
+
+                        </div>
+
+
+                        <div class="score-number">
+                            78
+                        </div>
+
+                    </div>
+
+
+                    <!-- Progress -->
+
+                    <div class="progress premium-progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width: 78%;">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Mini Stats -->
+
+                    <div class="mini-stats">
+
+
+                        <div>
+
+                            <i class="bi bi-emoji-smile"></i>
+
+                            <span>
+                                Mood
+                            </span>
+
+                            <strong>
+                                Positive
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="bi bi-moon-stars"></i>
+
+                            <span>
+                                Sleep
+                            </span>
+
+                            <strong>
+                                7h 20m
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HEALTH REPORT AI ANALYZER
+===================================================== -->
+
+<section class="health-report-section">
+
+    <div class="container">
+
+        <div class="health-report-card">
+
+            <div class="row align-items-center g-4">
+
+                <!-- LEFT -->
+
+                <div class="col-lg-8">
+
+                    <div class="health-report-icon">
+
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+
+                    </div>
+
+                    <span class="health-report-label">
+
+                        AI HEALTH REPORT ANALYZER
+
+                    </span>
+
+                    <h2 class="health-report-title">
+
+                        Understand Your Health Report
+
+                    </h2>
+
+                    <p class="health-report-description">
+
+                        Upload a PDF or image of a health report
+                        and get a simple, easy-to-understand
+                        explanation of the readable values and
+                        findings.
+
+                    </p>
+
+                    <div class="health-report-points">
+
+                        <span>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Blood & sugar reports
+                        </span>
+
+                        <span>
+                            <i class="bi bi-check-circle-fill"></i>
+                            General medical reports
+                        </span>
+
+                        <span>
+                            <i class="bi bi-check-circle-fill"></i>
+                            X-ray/report findings
+                        </span>
+
+                        <span>
+                            <i class="bi bi-check-circle-fill"></i>
+                            Mental wellness reports
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div class="col-lg-4 text-lg-end">
+
+                    <button
+                        type="button"
+                        class="health-report-button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#healthReportModal">
+
+                        <i class="bi bi-upload me-2"></i>
+
+                        Analyze Health Report
+
+                    </button>
+
+                    <small class="health-report-note">
+
+                        PDF, JPG, JPEG, PNG or WEBP • Max 10 MB
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HEALTH REPORT MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="healthReportModal"
+    tabindex="-1"
+    aria-labelledby="healthReportModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content health-report-modal">
+
+
+            <!-- HEADER -->
+
+            <div class="modal-header health-report-modal-header">
+
+                <div>
+
+                    <div class="health-report-modal-icon">
+
+                        <i class="bi bi-heart-pulse-fill"></i>
+
+                    </div>
+
+                    <h5
+                        class="modal-title"
+                        id="healthReportModalLabel">
+
+                        AI Health Report Analyzer
+
+                    </h5>
+
+                    <p class="health-report-modal-subtitle">
+
+                        Get a simple explanation of your uploaded report.
+
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+
+                </button>
+
+            </div>
+
+
+            <!-- BODY -->
+
+            <div class="modal-body">
+
+
+                <!-- UPLOAD AREA -->
+
+                <div
+                    id="healthReportUploadArea"
+                    class="health-report-upload-area">
+
+                    <div class="health-report-upload-icon">
+
+                        <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                    </div>
+
+                    <h5>
+
+                        Upload Your Health Report
+
+                    </h5>
+
+                    <p>
+
+                        Select a PDF or image file containing
+                        your health report.
+
+                    </p>
+
+
+                    <input
+                        type="file"
+                        id="healthReportFile"
+                        name="report"
+                        accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp"
+                        hidden>
+
+
+                    <button
+                        type="button"
+                        id="healthReportChooseBtn"
+                        class="health-report-choose-btn">
+
+                        <i class="bi bi-folder2-open me-2"></i>
+
+                        Choose Report
+
+                    </button>
+
+
+                    <div
+                        id="healthReportFileName"
+                        class="health-report-file-name">
+
+                    </div>
+
+
+                    <div class="health-report-supported">
+
+                        Supported:
+                        PDF, JPG, JPEG, PNG, WEBP
+
+                    </div>
+
+                    <div class="health-report-size">
+
+                        Maximum file size: 10 MB
+
+                    </div>
+
+                </div>
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="healthReportError"
+                    class="health-report-message health-report-error d-none">
+
+                </div>
+
+
+                <!-- LOADING -->
+
+                <div
+                    id="healthReportLoading"
+                    class="health-report-loading d-none">
+
+                    <div class="spinner-border" role="status">
+
+                        <span class="visually-hidden">
+                            Analyzing...
+                        </span>
+
+                    </div>
+
+                    <h6>
+                        AI is analyzing your report...
+                    </h6>
+
+                    <p>
+                        Please wait. This may take a few moments.
+                    </p>
+
+                </div>
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="healthReportResult"
+                    class="health-report-result d-none">
+
+                    <div class="health-report-result-header">
+
+                        <i class="bi bi-clipboard2-pulse-fill"></i>
+
+                        <span>
+                            AI Analysis
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="healthReportResultContent"
+                        class="health-report-result-content">
+
+                    </div>
+
+
+                    <div class="health-report-disclaimer">
+
+                        <i class="bi bi-info-circle-fill"></i>
+
+                        <span>
+
+                            This AI analysis is for educational
+                            and supportive information only. It is
+                            not a medical diagnosis and does not
+                            replace advice from a qualified doctor
+                            or healthcare professional.
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="modal-footer health-report-modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="healthReportAnalyzeBtn"
+                    class="health-report-analyze-btn">
+
+                    <i class="bi bi-stars me-2"></i>
+
+                    Analyze Report
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FEATURES SECTION
+===================================================== -->
+
+<section
+    id="features"
+    class="features-section premium-features">
+
+    <div class="container">
+
+
+        <!-- Heading -->
+
+        <div class="section-heading text-center">
+
+            <span class="premium-badge">
+
+                WHAT MINDCARE OFFERS
+
+            </span>
+
+
+            <h2 class="section-title mt-3">
+
+                Everything you need for
+
+                <span class="gold-text">
+
+                    everyday wellness
+
+                </span>
+
+            </h2>
+
+
+            <p class="section-subtitle">
+
+                Simple and supportive tools designed
+                for students, adults and elderly users.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Feature Cards -->
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- Mind Check -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="feature-card glass-card">
+
+                    <div class="feature-icon premium-icon purple">
+
+                        <i class="bi bi-brain"></i>
+
+                    </div>
+
+
+                    <span class="feature-number">
+                        01
+                    </span>
+
+
+                    <h4>
+                        Mind Check
+                    </h4>
+
+
+                    <p>
+
+                        Track your mood, stress,
+                        sleep and daily emotions
+                        through simple check-ins.
+
+                    </p>
+
+
+                    <a href="/signup" class="feature-link">
+
+                        Explore
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Wellness -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="feature-card glass-card">
+
+                    <div class="feature-icon premium-icon mint">
+
+                        <i class="bi bi-heart-pulse"></i>
+
+                    </div>
+
+
+                    <span class="feature-number">
+                        02
+                    </span>
+
+
+                    <h4>
+                        Wellness Activities
+                    </h4>
+
+
+                    <p>
+
+                        Meditation, breathing,
+                        yoga, walking and
+                        simple exercises.
+
+                    </p>
+
+
+                    <a href="/signup" class="feature-link">
+
+                        Explore
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Progress -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="feature-card glass-card">
+
+                    <div class="feature-icon premium-icon gold">
+
+                        <i class="bi bi-bar-chart-line"></i>
+
+                    </div>
+
+
+                    <span class="feature-number">
+                        03
+                    </span>
+
+
+                    <h4>
+                        Progress Tracking
+                    </h4>
+
+
+                    <p>
+
+                        Understand your wellness
+                        journey using charts,
+                        statistics and reports.
+
+                    </p>
+
+
+                    <a href="/signup" class="feature-link">
+
+                        Explore
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Reminders -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="feature-card glass-card">
+
+                    <div class="feature-icon premium-icon blue">
+
+                        <i class="bi bi-bell"></i>
+
+                    </div>
+
+
+                    <span class="feature-number">
+                        04
+                    </span>
+
+
+                    <h4>
+                        Smart Reminders
+                    </h4>
+
+
+                    <p>
+
+                        Timers and reminders help
+                        you follow your wellness
+                        routine consistently.
+
+                    </p>
+
+
+                    <a href="/signup" class="feature-link">
+
+                        Explore
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Mind Games -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="feature-card glass-card">
+
+                    <div class="feature-icon premium-icon pink">
+
+                        <i class="bi bi-controller"></i>
+
+                    </div>
+
+
+                    <span class="feature-number">
+                        05
+                    </span>
+
+
+                    <h4>
+                        Mind Games
+                    </h4>
+
+
+                    <p>
+
+                        Simple puzzles, quizzes
+                        and activities designed
+                        for different age groups.
+
+                    </p>
+
+
+                    <a href="/signup" class="feature-link">
+
+                        Explore
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Medication -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="feature-card glass-card">
+
+                    <div class="feature-icon premium-icon orange">
+
+                        <i class="bi bi-capsule"></i>
+
+                    </div>
+
+
+                    <span class="feature-number">
+                        06
+                    </span>
+
+
+                    <h4>
+                        Medication Manager
+                    </h4>
+
+
+                    <p>
+
+                        Organize prescriptions
+                        and create medicine
+                        reminder schedules.
+
+                    </p>
+
+
+                    <a href="/signup" class="feature-link">
+
+                        Explore
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY MINDCARE
+===================================================== -->
+
+<section class="why-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6">
+
+                <span class="premium-badge">
+
+                    WHY MINDCARE?
+
+                </span>
+
+
+                <h2 class="section-title mt-3">
+
+                    Small daily steps can make
+
+                    <span class="gold-text">
+
+                        a meaningful difference.
+
+                    </span>
+
+                </h2>
+
+
+                <p class="section-subtitle mt-3">
+
+                    MindCare brings everyday wellness
+                    tools together in one simple,
+                    easy-to-use platform.
+
+                </p>
+
+
+                <div class="why-points">
+
+
+                    <div class="why-point">
+
+                        <div>
+
+                            <i class="bi bi-check-lg"></i>
+
+                        </div>
+
+                        <span>
+
+                            Easy for different age groups
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="why-point">
+
+                        <div>
+
+                            <i class="bi bi-check-lg"></i>
+
+                        </div>
+
+                        <span>
+
+                            Simple daily wellness routines
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="why-point">
+
+                        <div>
+
+                            <i class="bi bi-check-lg"></i>
+
+                        </div>
+
+                        <span>
+
+                            Track your progress over time
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+
+
+                <div class="floating-info-card">
+
+
+                    <div class="floating-icon">
+
+                        🌿
+
+                    </div>
+
+
+                    <h4>
+
+                        A calmer day starts with
+                        small habits.
+
+                    </h4>
+
+
+                    <p>
+
+                        Check in with yourself,
+                        practice a wellness activity
+                        and keep track of your progress.
+
+                    </p>
+
+
+                    <a
+                        href="/signup"
+                        class="btn btn-premium">
+
+                        Begin Today
+
+                        <i class="bi bi-arrow-right ms-1"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="premium-footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <div class="footer-brand">
+
+                    🌿 MindCare AI
+
+                </div>
+
+                <p>
+
+                    Mental Wellness & Care Companion
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span>
+
+                    © 2026 MindCare AI
+
+                </span>
+
+                <span>
+
+                    Made for everyday wellness
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+     EXISTING SCRIPTS
+===================================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/theme.js') }}">
+</script>
+
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}">
+</script>
+
+
+<!-- =====================================================
+     HEALTH REPORT SCRIPT
+===================================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/health_report.js') }}">
+</script>
+
+
+</body>
+
+</html>

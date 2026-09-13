@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Meditation | MindCare AI</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Meditation CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/meditation.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="meditation-header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    <i class="bi bi-flower1"></i>
+                </div>
+
+                <div>
+
+                    <h2>MindCare</h2>
+
+                    <span>AI Wellness</span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('dashboard') }}"
+                class="dashboard-button"
+            >
+                <i class="bi bi-arrow-left"></i>
+                Dashboard
+            </a>
+
+        </header>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="meditation-container">
+
+
+            <!-- Heading -->
+
+            <section class="intro-section">
+
+                <div class="intro-icon">
+                    🧘
+                </div>
+
+                <p class="section-label">
+                    MINDFULNESS & RELAXATION
+                </p>
+
+                <h1>
+                    Take a Moment to Breathe
+                </h1>
+
+                <p>
+                    Choose a meditation activity and give yourself
+                    a few peaceful minutes.
+                </p>
+
+            </section>
+
+
+            <!-- ================= ACTIVITY CARDS ================= -->
+
+            <section class="activities-section">
+
+
+                <!-- Deep Breathing -->
+
+                <div
+                    class="activity-card"
+                    data-activity="Deep Breathing"
+                    data-duration="2"
+                >
+
+                    <div class="activity-icon">
+                        🌬️
+                    </div>
+
+                    <div class="activity-content">
+
+                        <h3>
+                            Deep Breathing
+                        </h3>
+
+                        <p>
+                            Slow breathing to help you relax
+                            and feel calm.
+                        </p>
+
+                        <span>
+                            2 Minutes
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="start-button"
+                    >
+                        Start
+                    </button>
+
+                </div>
+
+
+                <!-- Relaxation -->
+
+                <div
+                    class="activity-card"
+                    data-activity="Relaxation"
+                    data-duration="5"
+                >
+
+                    <div class="activity-icon">
+                        🌿
+                    </div>
+
+                    <div class="activity-content">
+
+                        <h3>
+                            Relaxation
+                        </h3>
+
+                        <p>
+                            Take some quiet time and release
+                            everyday tension.
+                        </p>
+
+                        <span>
+                            5 Minutes
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="start-button"
+                    >
+                        Start
+                    </button>
+
+                </div>
+
+
+                <!-- Mindfulness -->
+
+                <div
+                    class="activity-card"
+                    data-activity="Mindfulness"
+                    data-duration="10"
+                >
+
+                    <div class="activity-icon">
+                        🧠
+                    </div>
+
+                    <div class="activity-content">
+
+                        <h3>
+                            Mindfulness
+                        </h3>
+
+                        <p>
+                            Focus on the present moment and
+                            clear your mind.
+                        </p>
+
+                        <span>
+                            10 Minutes
+                        </span>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="start-button"
+                    >
+                        Start
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= TIMER ================= -->
+
+            <section
+                class="timer-section"
+                id="timerSection"
+            >
+
+                <div class="timer-icon">
+                    🧘
+                </div>
+
+                <p class="timer-label">
+                    NOW MEDITATING
+                </p>
+
+                <h2 id="activityName">
+                    Meditation
+                </h2>
+
+
+                <div
+                    class="timer"
+                    id="timer"
+                >
+                    02:00
+                </div>
+
+
+                <p
+                    class="breathing-text"
+                    id="breathingText"
+                >
+                    Breathe in slowly...
+                </p>
+
+
+                <div class="timer-actions">
+
+                    <button
+                        type="button"
+                        id="pauseButton"
+                        class="timer-button secondary"
+                    >
+                        <i class="bi bi-pause-fill"></i>
+                        Pause
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="completeButton"
+                        class="timer-button primary"
+                    >
+                        <i class="bi bi-check2"></i>
+                        Complete
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= SUCCESS MESSAGE ================= -->
+
+            <section
+                class="success-section"
+                id="successSection"
+            >
+
+                <div class="success-icon">
+                    <i class="bi bi-check2-circle"></i>
+                </div>
+
+                <h2>
+                    Meditation Completed!
+                </h2>
+
+                <p id="successMessage">
+                    Great job taking some time for yourself.
+                </p>
+
+
+                <button
+                    type="button"
+                    id="againButton"
+                    class="again-button"
+                >
+                    <i class="bi bi-arrow-repeat"></i>
+                    Choose Another Activity
+                </button>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- Meditation JavaScript -->
+
+    <script
+        src="{{ url_for('static', filename='js/meditation.js') }}"
+    ></script>
+
+</body>
+
+</html>

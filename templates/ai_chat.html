@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Chat | MindCare AI</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/ai_chat.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app-wrapper">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
+
+            <div>
+                <h4>MindCare</h4>
+                <span>AI Wellness</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-title">MAIN</p>
+
+            <a href="{{ url_for('dashboard') }}" class="menu-link">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="{{ url_for('mind_check') }}" class="menu-link">
+                <i class="bi bi-heart-pulse"></i>
+                <span>Mind Check</span>
+            </a>
+
+            <a href="{{ url_for('progress') }}" class="menu-link">
+                <i class="bi bi-bar-chart-line"></i>
+                <span>My Progress</span>
+            </a>
+
+
+            <p class="menu-title">WELLNESS</p>
+
+            <a href="{{ url_for('meditation') }}" class="menu-link">
+                <i class="bi bi-wind"></i>
+                <span>Meditation</span>
+            </a>
+
+            <a href="{{ url_for('yoga') }}" class="menu-link">
+                <i class="bi bi-person-arms-up"></i>
+                <span>Yoga</span>
+            </a>
+
+            <a href="{{ url_for('exercise') }}" class="menu-link">
+                <i class="bi bi-activity"></i>
+                <span>Exercise</span>
+            </a>
+
+
+            <p class="menu-title">MORE</p>
+
+            <a href="{{ url_for('report') }}" class="menu-link">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>My Reports</span>
+            </a>
+
+            <a href="/ai-chat" class="menu-link active">
+                <i class="bi bi-robot"></i>
+                <span>AI Chat</span>
+            </a>
+
+            <a href="/mind-games" class="menu-link">
+                <i class="bi bi-controller"></i>
+                <span>Mind Games</span>
+            </a>
+
+            <a href="/professional-help" class="menu-link">
+                <i class="bi bi-person-video3"></i>
+                <span>Professional Help</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+                <div class="help-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+
+                <strong>
+                    Your wellbeing matters
+                </strong>
+
+                <p>
+                    MindCare is here to support your
+                    everyday wellness journey.
+                </p>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('logout') }}"
+                class="logout-link"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>
+                    Logout
+                </span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    🤖 AI Wellness Chat
+                </h1>
+
+                <p>
+                    Talk with your MindCare AI wellness companion.
+                </p>
+
+            </div>
+
+
+            <div class="profile-mini">
+
+                <div class="profile-avatar">
+                    {{ user_name[0]|upper }}
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>
+                        {{ user_name }}
+                    </strong>
+
+                    <span>
+                        Wellness Member
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CHAT CONTAINER ================= -->
+
+        <section class="chat-container">
+
+
+            <!-- CHAT HEADER -->
+
+            <div class="chat-header">
+
+                <div class="ai-avatar">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        MindCare AI
+                    </h3>
+
+                    <span>
+                        <i class="bi bi-circle-fill"></i>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT MESSAGES -->
+
+            <div
+                class="chat-messages"
+                id="chatMessages"
+            >
+
+
+                <!-- DEFAULT AI MESSAGE -->
+
+                <div class="message ai-message">
+
+                    <div class="message-avatar">
+                        🤖
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-bubble">
+
+                            Hello {{ user_name }}! 👋
+
+                            <br><br>
+
+                            I'm your MindCare AI wellness companion.
+                            You can talk to me about stress, relaxation,
+                            sleep, motivation, daily wellness, or anything
+                            else related to your wellbeing.
+
+                            <br><br>
+
+                            How are you feeling today? 💜
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREVIOUS CHAT HISTORY -->
+
+                {% for chat in chat_history %}
+
+                <div class="message user-message">
+
+                    <div class="message-content">
+
+                        <div class="message-bubble">
+                            {{ chat["message"] }}
+                        </div>
+
+                    </div>
+
+                    <div class="message-avatar user-avatar">
+                        {{ user_name[0]|upper }}
+                    </div>
+
+                </div>
+
+
+                <div class="message ai-message">
+
+                    <div class="message-avatar">
+                        🤖
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-bubble">
+                            {{ chat["response"] }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+
+
+            <!-- TYPING INDICATOR -->
+
+            <div
+                class="typing-indicator"
+                id="typingIndicator"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <small>
+                    MindCare AI is thinking...
+                </small>
+
+            </div>
+
+
+            <!-- ================= CHAT INPUT ================= -->
+
+            <div class="chat-input-area">
+
+                <form id="chatForm">
+
+
+                    <textarea
+                        id="messageInput"
+                        name="message"
+                        placeholder="Type your message here..."
+                        rows="1"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+
+                    <button
+                        type="submit"
+                        id="sendButton"
+                        title="Send message"
+                    >
+
+                        <i class="bi bi-send-fill"></i>
+
+                    </button>
+
+
+                </form>
+
+
+                <p class="chat-note">
+
+                    <i class="bi bi-info-circle"></i>
+
+                    MindCare AI provides wellness support and is not
+                    a replacement for professional medical care.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='js/ai_chat.js') }}"
+></script>
+
+
+</body>
+
+</html>

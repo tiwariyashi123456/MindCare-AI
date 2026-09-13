@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MindCare AI - Dashboard</title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+         ===================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- =====================================================
+         GLOBAL PREMIUM THEME
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/theme.css') }}"
+    >
+
+
+    <!-- =====================================================
+         DASHBOARD CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}"
+    >
+
+
+    <!-- =====================================================
+         LANGUAGE SELECTOR CSS
+         ===================================================== -->
+
+    <style>
+
+        /* ================= LANGUAGE SELECTOR ================= */
+
+        .language-selector {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-right: 12px;
+
+        }
+
+
+        .language-selector label {
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: var(--text-secondary, #c9c3d8);
+
+            white-space: nowrap;
+
+        }
+
+
+        .language-selector select {
+
+            border: 1px solid var(--border, rgba(255,255,255,0.12));
+
+            border-radius: 10px;
+
+            padding: 8px 12px;
+
+            background: var(--bg-card, rgba(255,255,255,0.075));
+
+            color: var(--text-main, #ffffff);
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            outline: none;
+
+            min-width: 110px;
+
+        }
+
+
+        .language-selector select option {
+
+            background: #211a38;
+
+            color: #ffffff;
+
+        }
+
+
+        .language-selector select:focus {
+
+            border-color: var(--primary, #d8b45a);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(216, 180, 90, 0.12);
+
+        }
+
+
+        /* ================= THEME TOGGLE ================= */
+
+        .dashboard-theme-toggle {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+
+            background: var(--bg-card);
+
+            color: var(--primary-light);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            font-size: 17px;
+
+            margin-right: 8px;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        .dashboard-theme-toggle:hover {
+
+            transform: translateY(-2px);
+
+            border-color:
+                rgba(216, 180, 90, 0.45);
+
+            box-shadow:
+                0 8px 25px
+                rgba(216, 180, 90, 0.15);
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .language-selector {
+
+                margin-right: 6px;
+
+            }
+
+
+            .language-selector label {
+
+                display: none;
+
+            }
+
+
+            .language-selector select {
+
+                min-width: 92px;
+
+                padding: 7px 8px;
+
+            }
+
+
+            .dashboard-theme-toggle {
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-container">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- ================= SIDEBAR LOGO ================= -->
+
+        <div class="sidebar-logo">
+
+            <div class="logo-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>MindCare</h2>
+
+                <span>AI Wellness</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SIDEBAR NAVIGATION
+             ================================================= -->
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="{{ url_for('dashboard') }}"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span data-i18n="dashboard">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- MIND CHECK -->
+
+            <a
+                href="{{ url_for('mind_check') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-heart-pulse"></i>
+
+                <span data-i18n="mindCheck">
+                    Mind Check
+                </span>
+
+            </a>
+
+
+            <!-- MY PROGRESS -->
+
+            <a
+                href="{{ url_for('progress') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-bar-chart-line"></i>
+
+                <span data-i18n="myProgress">
+                    My Progress
+                </span>
+
+            </a>
+
+
+            <!-- MEDITATION -->
+
+            <a
+                href="{{ url_for('meditation') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-flower1"></i>
+
+                <span data-i18n="meditation">
+                    Meditation
+                </span>
+
+            </a>
+
+
+            <!-- YOGA -->
+
+            <a
+                href="{{ url_for('yoga') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-arms-up"></i>
+
+                <span data-i18n="yoga">
+                    Yoga
+                </span>
+
+            </a>
+
+
+            <!-- EXERCISE -->
+
+            <a
+                href="{{ url_for('exercise') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-activity"></i>
+
+                <span data-i18n="exercise">
+                    Exercise
+                </span>
+
+            </a>
+
+
+            <!-- WELLNESS TIMER -->
+
+            <a
+                href="{{ url_for('wellness_timer') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-stopwatch"></i>
+
+                <span data-i18n="wellnessTimer">
+                    Wellness Timer
+                </span>
+
+            </a>
+
+
+            <!-- MY REPORTS -->
+
+            <a
+                href="{{ url_for('report') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-file-earmark-bar-graph"></i>
+
+                <span data-i18n="myReports">
+                    My Reports
+                </span>
+
+            </a>
+
+
+            <!-- MIND GAMES -->
+
+            <a
+                href="{{ url_for('mind_games') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-controller"></i>
+
+                <span data-i18n="mindGames">
+                    Mind Games
+                </span>
+
+            </a>
+
+
+            <!-- PROFESSIONAL HELP -->
+
+            <a
+                href="{{ url_for('professional_help') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-heart"></i>
+
+                <span data-i18n="professionalHelp">
+                    Professional Help
+                </span>
+
+            </a>
+
+
+            <!-- AI CHAT -->
+
+            <a
+                href="{{ url_for('ai_chat') }}"
+                class="nav-item"
+            >
+
+                <i class="bi bi-robot"></i>
+
+                <span data-i18n="aiChat">
+                    AI Chat
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- =================================================
+             SIDEBAR BOTTOM
+             ================================================= -->
+
+        <div class="sidebar-bottom">
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="{{ url_for('profile') }}"
+                class="profile-button"
+            >
+
+                <div class="profile-avatar">
+
+                    <i class="bi bi-person-fill"></i>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <strong>
+                        {{ user_name }}
+                    </strong>
+
+                    <span data-i18n="myProfile">
+                        My Profile
+                    </span>
+
+                </div>
+
+
+                <i
+                    class="bi bi-chevron-right profile-arrow"
+                ></i>
+
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <a
+                href="{{ url_for('logout') }}"
+                class="logout-button"
+            >
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                <span data-i18n="logout">
+                    Logout
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP HEADER
+             ================================================= -->
+
+        <header class="top-header">
+
+
+            <!-- ================= HEADER LEFT ================= -->
+
+            <div class="header-left">
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="mobile-menu-btn"
+                    type="button"
+                    aria-label="Open menu"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <!-- WELCOME -->
+
+                <div>
+
+                    <h1>
+
+                        <span data-i18n="welcomeBack">
+                            Welcome back
+                        </span>,
+
+                        {{ user_name }}! 👋
+
+                    </h1>
+
+
+                    <p data-i18n="takeMoment">
+
+                        Take a moment for yourself today.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 HEADER RIGHT
+                 ================================================= -->
+
+            <div class="header-right">
+
+
+                <!-- ================= THEME TOGGLE ================= -->
+
+                <button
+                    type="button"
+                    class="dashboard-theme-toggle"
+                    id="dashboardThemeToggle"
+                    aria-label="Toggle theme"
+                    title="Change theme"
+                >
+
+                    <i
+                        class="bi bi-moon-stars-fill"
+                        id="dashboardThemeIcon"
+                    ></i>
+
+                </button>
+
+
+                <!-- ================= LANGUAGE ================= -->
+
+                <div class="language-selector">
+
+
+                    <label for="languageSelect">
+
+                        🌐
+
+                        <span data-i18n="language">
+                            Language
+                        </span>
+
+                    </label>
+
+
+                    <select id="languageSelect">
+
+
+                        <option
+                            value="en"
+                            data-i18n="english"
+                        >
+                            English
+                        </option>
+
+
+                        <option
+                            value="hi"
+                            data-i18n="hindi"
+                        >
+                            हिंदी
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <!-- ================= PROFILE ================= -->
+
+                <a
+                    href="{{ url_for('profile') }}"
+                    class="header-profile"
+                >
+
+
+                    <div class="header-avatar">
+
+                        <i class="bi bi-person-fill"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            {{ user_name }}
+                        </strong>
+
+
+                        <span data-i18n="myProfile">
+                            My Profile
+                        </span>
+
+                    </div>
+
+
+                </a>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- =====================================================
+             WELCOME CARD
+             ===================================================== -->
+
+        <section class="welcome-section">
+
+
+            <div class="welcome-content">
+
+
+                <div class="welcome-text">
+
+
+                    <!-- LABEL -->
+
+                    <span class="welcome-label">
+
+                        <i class="bi bi-stars"></i>
+
+
+                        <span data-i18n="wellnessJourney">
+
+                            Your wellness journey
+
+                        </span>
+
+                    </span>
+
+
+                    <!-- HEADING -->
+
+                    <h2 data-i18n="howFeeling">
+
+                        How are you feeling today?
+
+                    </h2>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <p data-i18n="mindCheckDescription">
+
+                        Take a quick mind check to understand
+                        your current emotional well-being and get
+                        personalized guidance.
+
+                    </p>
+
+
+                    <!-- BUTTON -->
+
+                    <a
+                        href="{{ url_for('mind_check') }}"
+                        class="primary-action"
+                    >
+
+                        <i class="bi bi-heart-pulse"></i>
+
+
+                        <span data-i18n="startMindCheck">
+
+                            Start Mind Check
+
+                        </span>
+
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+                <!-- ================= ILLUSTRATION ================= -->
+
+                <div class="welcome-illustration">
+
+
+                    <div class="illustration-circle">
+
+                        <i
+                            class="bi bi-heart-pulse-fill"
+                        ></i>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             WELLNESS CARDS
+             ===================================================== -->
+
+        <section class="wellness-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+
+                    <span
+                        class="section-label"
+                        data-i18n="dailyWellness"
+                    >
+
+                        DAILY WELLNESS
+
+                    </span>
+
+
+                    <h2 data-i18n="takeCare">
+
+                        Take care of your mind & body
+
+                    </h2>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="wellness-grid">
+
+
+                <!-- =================================================
+                     MEDITATION
+                     ================================================= -->
+
+                <a
+                    href="{{ url_for('meditation') }}"
+                    class="wellness-card meditation-card"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-flower1"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+
+                        <h3 data-i18n="meditation">
+
+                            Meditation
+
+                        </h3>
+
+
+                        <p data-i18n="meditationDescription">
+
+                            Calm your mind with guided
+                            meditation sessions.
+
+                        </p>
+
+
+                        <span class="card-link">
+
+
+                            <span data-i18n="startMeditation">
+
+                                Start Meditation
+
+                            </span>
+
+
+                            <i class="bi bi-arrow-right"></i>
+
+
+                        </span>
+
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- =================================================
+                     EXERCISE
+                     ================================================= -->
+
+                <a
+                    href="{{ url_for('exercise') }}"
+                    class="wellness-card exercise-card"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-activity"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+
+                        <h3 data-i18n="exercise">
+
+                            Exercise
+
+                        </h3>
+
+
+                        <p data-i18n="exerciseDescription">
+
+                            Stay active and improve your
+                            physical well-being.
+
+                        </p>
+
+
+                        <span class="card-link">
+
+
+                            <span data-i18n="exploreExercises">
+
+                                Explore Exercises
+
+                            </span>
+
+
+                            <i class="bi bi-arrow-right"></i>
+
+
+                        </span>
+
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- =================================================
+                     YOGA
+                     ================================================= -->
+
+                <a
+                    href="{{ url_for('yoga') }}"
+                    class="wellness-card yoga-card"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-person-arms-up"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+
+                        <h3 data-i18n="yoga">
+
+                            Yoga
+
+                        </h3>
+
+
+                        <p data-i18n="yogaDescription">
+
+                            Improve flexibility, balance
+                            and inner peace.
+
+                        </p>
+
+
+                        <span class="card-link">
+
+
+                            <span data-i18n="practiceYoga">
+
+                                Practice Yoga
+
+                            </span>
+
+
+                            <i class="bi bi-arrow-right"></i>
+
+
+                        </span>
+
+
+                    </div>
+
+
+                </a>
+
+
+                <!-- =================================================
+                     WELLNESS TIMER
+                     ================================================= -->
+
+                <a
+                    href="{{ url_for('wellness_timer') }}"
+                    class="wellness-card timer-card"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-stopwatch"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+
+                        <h3 data-i18n="wellnessTimer">
+
+                            Wellness Timer
+
+                        </h3>
+
+
+                        <p data-i18n="timerDescription">
+
+                            Take regular breaks and build
+                            healthy habits.
+
+                        </p>
+
+
+                        <span class="card-link">
+
+
+                            <span data-i18n="openTimer">
+
+                                Open Timer
+
+                            </span>
+
+
+                            <i class="bi bi-arrow-right"></i>
+
+
+                        </span>
+
+
+                    </div>
+
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             MIND CHECK
+             ===================================================== -->
+
+        <section class="mind-check-section">
+
+
+            <div class="mind-check-card">
+
+
+                <div class="mind-check-icon">
+
+                    <i class="bi bi-clipboard2-heart"></i>
+
+                </div>
+
+
+                <div class="mind-check-content">
+
+
+                    <span
+                        class="section-label"
+                        data-i18n="quickAssessment"
+                    >
+
+                        QUICK ASSESSMENT
+
+                    </span>
+
+
+                    <h2 data-i18n="checkMentalWellness">
+
+                        Check your mental wellness
+
+                    </h2>
+
+
+                    <p data-i18n="assessmentDescription">
+
+                        Answer a few simple questions and
+                        understand your current stress and
+                        emotional state.
+
+                    </p>
+
+
+                    <a
+                        href="{{ url_for('mind_check') }}"
+                        class="mind-check-button"
+                    >
+
+
+                        <span data-i18n="takeMindCheck">
+
+                            Take Mind Check
+
+                        </span>
+
+
+                        <i class="bi bi-arrow-right"></i>
+
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             QUICK ACTIONS
+             ===================================================== -->
+
+        <section class="quick-actions-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+
+                    <span
+                        class="section-label"
+                        data-i18n="quickActions"
+                    >
+
+                        QUICK ACTIONS
+
+                    </span>
+
+
+                    <h2 data-i18n="whatWouldYouLike">
+
+                        What would you like to do?
+
+                    </h2>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="quick-actions-grid">
+
+
+                <!-- ================= AI CHAT ================= -->
+
+                <a
+                    href="{{ url_for('ai_chat') }}"
+                    class="quick-action"
+                >
+
+
+                    <div class="quick-icon ai-chat">
+
+                        <i class="bi bi-robot"></i>
+
+                    </div>
+
+
+                    <span data-i18n="aiChat">
+
+                        AI Chat
+
+                    </span>
+
+
+                    <small data-i18n="talkWithAI">
+
+                        Talk with MindCare AI
+
+                    </small>
+
+
+                </a>
+
+
+                <!-- ================= MEDITATION ================= -->
+
+                <a
+                    href="{{ url_for('meditation') }}"
+                    class="quick-action"
+                >
+
+
+                    <div class="quick-icon purple">
+
+                        <i class="bi bi-flower1"></i>
+
+                    </div>
+
+
+                    <span data-i18n="meditation">
+
+                        Meditation
+
+                    </span>
+
+
+                    <small data-i18n="relaxMind">
+
+                        Relax your mind
+
+                    </small>
+
+
+                </a>
+
+
+                <!-- ================= EXERCISE ================= -->
+
+                <a
+                    href="{{ url_for('exercise') }}"
+                    class="quick-action"
+                >
+
+
+                    <div class="quick-icon green">
+
+                        <i class="bi bi-activity"></i>
+
+                    </div>
+
+
+                    <span data-i18n="exercise">
+
+                        Exercise
+
+                    </span>
+
+
+                    <small data-i18n="moveBody">
+
+                        Move your body
+
+                    </small>
+
+
+                </a>
+
+
+                <!-- ================= YOGA ================= -->
+
+                <a
+                    href="{{ url_for('yoga') }}"
+                    class="quick-action"
+                >
+
+
+                    <div class="quick-icon blue">
+
+                        <i class="bi bi-person-arms-up"></i>
+
+                    </div>
+
+
+                    <span data-i18n="yoga">
+
+                        Yoga
+
+                    </span>
+
+
+                    <small data-i18n="findBalance">
+
+                        Find your balance
+
+                    </small>
+
+
+                </a>
+
+
+                <!-- ================= TIMER ================= -->
+
+                <a
+                    href="{{ url_for('wellness_timer') }}"
+                    class="quick-action"
+                >
+
+
+                    <div class="quick-icon orange">
+
+                        <i class="bi bi-stopwatch"></i>
+
+                    </div>
+
+
+                    <span data-i18n="wellnessTimer">
+
+                        Wellness Timer
+
+                    </span>
+
+
+                    <small data-i18n="mindfulBreak">
+
+                        Take a mindful break
+
+                    </small>
+
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="dashboard-footer">
+
+
+            <p>
+
+                <i class="bi bi-heart-fill"></i>
+
+
+                <span data-i18n="footerTitle">
+
+                    MindCare AI — Your mental wellness companion
+
+                </span>
+
+
+            </p>
+
+
+            <span data-i18n="footerText">
+
+                Take care of your mind. Every day.
+
+            </span>
+
+
+        </footer>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     MOBILE MENU SCRIPT
+     ========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const menuButton =
+            document.querySelector(
+                ".mobile-menu-btn"
+            );
+
+
+        const sidebar =
+            document.querySelector(
+                ".sidebar"
+            );
+
+
+        if (
+            menuButton &&
+            sidebar
+        ) {
+
+
+            menuButton.addEventListener(
+                "click",
+                function () {
+
+                    sidebar.classList.toggle(
+                        "show"
+                    );
+
+                }
+            );
+
+        }
+
+
+    }
+);
+
+</script>
+
+
+
+<!-- =========================================================
+     THEME SCRIPT
+     ========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const themeButton =
+            document.getElementById(
+                "dashboardThemeToggle"
+            );
+
+
+        const themeIcon =
+            document.getElementById(
+                "dashboardThemeIcon"
+            );
+
+
+        /* ================= LOAD SAVED THEME ================= */
+
+        const savedTheme =
+            localStorage.getItem(
+                "mindcareTheme"
+            ) || "dark";
+
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            savedTheme
+        );
+
+
+        /* ================= UPDATE ICON ================= */
+
+        function updateThemeIcon(theme) {
+
+
+            if (!themeIcon) {
+                return;
+            }
+
+
+            if (theme === "light") {
+
+
+                themeIcon.className =
+                    "bi bi-sun-fill";
+
+
+            } else {
+
+
+                themeIcon.className =
+                    "bi bi-moon-stars-fill";
+
+            }
+
+        }
+
+
+        updateThemeIcon(
+            savedTheme
+        );
+
+
+        /* ================= THEME TOGGLE ================= */
+
+        if (themeButton) {
+
+
+            themeButton.addEventListener(
+                "click",
+                function () {
+
+
+                    const currentTheme =
+                        document.documentElement.getAttribute(
+                            "data-theme"
+                        ) || "dark";
+
+
+                    const newTheme =
+                        currentTheme === "dark"
+                            ? "light"
+                            : "dark";
+
+
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        newTheme
+                    );
+
+
+                    localStorage.setItem(
+                        "mindcareTheme",
+                        newTheme
+                    );
+
+
+                    updateThemeIcon(
+                        newTheme
+                    );
+
+
+                }
+            );
+
+        }
+
+
+    }
+);
+
+</script>
+
+
+
+<!-- =========================================================
+     LANGUAGE SCRIPT
+     ========================================================= -->
+
+<script>
+
+const translations = {
+
+
+    /* =====================================================
+       ENGLISH
+       ===================================================== */
+
+    en: {
+
+
+        language: "Language",
+
+        english: "English",
+
+        hindi: "Hindi",
+
+
+        dashboard: "Dashboard",
+
+        mindCheck: "Mind Check",
+
+        myProgress: "My Progress",
+
+        meditation: "Meditation",
+
+        yoga: "Yoga",
+
+        exercise: "Exercise",
+
+        wellnessTimer: "Wellness Timer",
+
+        myReports: "My Reports",
+
+        mindGames: "Mind Games",
+
+        professionalHelp: "Professional Help",
+
+        aiChat: "AI Chat",
+
+
+        myProfile: "My Profile",
+
+        logout: "Logout",
+
+
+        welcomeBack: "Welcome back",
+
+        takeMoment:
+            "Take a moment for yourself today.",
+
+
+        wellnessJourney:
+            "Your wellness journey",
+
+
+        howFeeling:
+            "How are you feeling today?",
+
+
+        mindCheckDescription:
+            "Take a quick mind check to understand your current emotional well-being and get personalized guidance.",
+
+
+        startMindCheck:
+            "Start Mind Check",
+
+
+        dailyWellness:
+            "DAILY WELLNESS",
+
+
+        takeCare:
+            "Take care of your mind & body",
+
+
+        meditationDescription:
+            "Calm your mind with guided meditation sessions.",
+
+
+        startMeditation:
+            "Start Meditation",
+
+
+        exerciseDescription:
+            "Stay active and improve your physical well-being.",
+
+
+        exploreExercises:
+            "Explore Exercises",
+
+
+        yogaDescription:
+            "Improve flexibility, balance and inner peace.",
+
+
+        practiceYoga:
+            "Practice Yoga",
+
+
+        timerDescription:
+            "Take regular breaks and build healthy habits.",
+
+
+        openTimer:
+            "Open Timer",
+
+
+        quickAssessment:
+            "QUICK ASSESSMENT",
+
+
+        checkMentalWellness:
+            "Check your mental wellness",
+
+
+        assessmentDescription:
+            "Answer a few simple questions and understand your current stress and emotional state.",
+
+
+        takeMindCheck:
+            "Take Mind Check",
+
+
+        quickActions:
+            "QUICK ACTIONS",
+
+
+        whatWouldYouLike:
+            "What would you like to do?",
+
+
+        talkWithAI:
+            "Talk with MindCare AI",
+
+
+        relaxMind:
+            "Relax your mind",
+
+
+        moveBody:
+            "Move your body",
+
+
+        findBalance:
+            "Find your balance",
+
+
+        mindfulBreak:
+            "Take a mindful break",
+
+
+        footerTitle:
+            "MindCare AI — Your mental wellness companion",
+
+
+        footerText:
+            "Take care of your mind. Every day."
+
+    },
+
+
+    /* =====================================================
+       HINDI
+       ===================================================== */
+
+    hi: {
+
+
+        language: "भाषा",
+
+        english: "English",
+
+        hindi: "हिंदी",
+
+
+        dashboard: "डैशबोर्ड",
+
+        mindCheck: "मानसिक जाँच",
+
+        myProgress: "मेरी प्रगति",
+
+        meditation: "ध्यान",
+
+        yoga: "योग",
+
+        exercise: "व्यायाम",
+
+        wellnessTimer: "वेलनेस टाइमर",
+
+        myReports: "मेरी रिपोर्ट",
+
+        mindGames: "माइंड गेम्स",
+
+        professionalHelp: "विशेषज्ञ सहायता",
+
+        aiChat: "AI चैट",
+
+
+        myProfile: "मेरी प्रोफ़ाइल",
+
+        logout: "लॉग आउट",
+
+
+        welcomeBack:
+            "वापसी पर आपका स्वागत है",
+
+
+        takeMoment:
+            "आज अपने लिए थोड़ा समय निकालें।",
+
+
+        wellnessJourney:
+            "आपकी वेलनेस यात्रा",
+
+
+        howFeeling:
+            "आज आप कैसा महसूस कर रहे हैं?",
+
+
+        mindCheckDescription:
+            "अपनी वर्तमान भावनात्मक स्थिति को समझने और व्यक्तिगत मार्गदर्शन पाने के लिए एक छोटी मानसिक जाँच करें।",
+
+
+        startMindCheck:
+            "मानसिक जाँच शुरू करें",
+
+
+        dailyWellness:
+            "दैनिक वेलनेस",
+
+
+        takeCare:
+            "अपने मन और शरीर का ख्याल रखें",
+
+
+        meditationDescription:
+            "Guided meditation sessions के साथ अपने मन को शांत करें।",
+
+
+        startMeditation:
+            "ध्यान शुरू करें",
+
+
+        exerciseDescription:
+            "सक्रिय रहें और अपने शारीरिक स्वास्थ्य में सुधार करें।",
+
+
+        exploreExercises:
+            "व्यायाम देखें",
+
+
+        yogaDescription:
+            "लचीलापन, संतुलन और आंतरिक शांति में सुधार करें।",
+
+
+        practiceYoga:
+            "योग करें",
+
+
+        timerDescription:
+            "नियमित ब्रेक लें और स्वस्थ आदतें बनाएँ।",
+
+
+        openTimer:
+            "टाइमर खोलें",
+
+
+        quickAssessment:
+            "त्वरित जाँच",
+
+
+        checkMentalWellness:
+            "अपने मानसिक स्वास्थ्य की जाँच करें",
+
+
+        assessmentDescription:
+            "कुछ आसान सवालों के जवाब दें और अपने वर्तमान तनाव तथा भावनात्मक स्थिति को समझें।",
+
+
+        takeMindCheck:
+            "मानसिक जाँच करें",
+
+
+        quickActions:
+            "त्वरित कार्य",
+
+
+        whatWouldYouLike:
+            "आप क्या करना चाहेंगे?",
+
+
+        talkWithAI:
+            "MindCare AI से बात करें",
+
+
+        relaxMind:
+            "अपने मन को शांत करें",
+
+
+        moveBody:
+            "अपने शरीर को सक्रिय रखें",
+
+
+        findBalance:
+            "अपना संतुलन बनाएँ",
+
+
+        mindfulBreak:
+            "थोड़ा mindful break लें",
+
+
+        footerTitle:
+            "MindCare AI — आपका मानसिक स्वास्थ्य साथी",
+
+
+        footerText:
+            "हर दिन अपने मन का ख्याल रखें।"
+
+    }
+
+};
+
+
+
+/* =========================================================
+   CHANGE LANGUAGE
+   ========================================================= */
+
+function changeLanguage(language) {
+
+
+    const selectedLanguage =
+        translations[language];
+
+
+    if (!selectedLanguage) {
+
+        return;
+
+    }
+
+
+    const elements =
+        document.querySelectorAll(
+            "[data-i18n]"
+        );
+
+
+    elements.forEach(
+        function (element) {
+
+
+            const key =
+                element.getAttribute(
+                    "data-i18n"
+                );
+
+
+            if (
+                selectedLanguage[key]
+                !== undefined
+            ) {
+
+
+                element.textContent =
+                    selectedLanguage[key];
+
+            }
+
+
+        }
+    );
+
+
+    /* SAVE LANGUAGE */
+
+    localStorage.setItem(
+        "mindcareLanguage",
+        language
+    );
+
+
+    /* UPDATE HTML LANGUAGE */
+
+    document.documentElement.lang =
+        language === "hi"
+            ? "hi"
+            : "en";
+
+
+    /* KEEP DROPDOWN SELECTED */
+
+    const languageSelect =
+        document.getElementById(
+            "languageSelect"
+        );
+
+
+    if (languageSelect) {
+
+
+        languageSelect.value =
+            language;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   LOAD LANGUAGE
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const languageSelect =
+            document.getElementById(
+                "languageSelect"
+            );
+
+
+        const savedLanguage =
+            localStorage.getItem(
+                "mindcareLanguage"
+            ) || "en";
+
+
+        changeLanguage(
+            savedLanguage
+        );
+
+
+        if (languageSelect) {
+
+
+            languageSelect.addEventListener(
+                "change",
+                function () {
+
+
+                    changeLanguage(
+                        this.value
+                    );
+
+
+                }
+            );
+
+        }
+
+
+    }
+);
+
+</script>
+
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+     ========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

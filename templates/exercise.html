@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Exercise | MindCare AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/exercise.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="exercise-page">
+
+
+    <!-- =========================================
+         Header
+         ========================================= -->
+
+    <header class="exercise-header">
+
+        <div>
+
+            <h1>🏃 Exercise</h1>
+
+            <p>
+                Move your body, relax your mind and take care of yourself.
+            </p>
+
+        </div>
+
+
+        <a href="{{ url_for('dashboard') }}"
+           class="back-btn">
+
+            ← Dashboard
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================================
+         Introduction
+         ========================================= -->
+
+    <section class="intro-card">
+
+        <div class="intro-icon">
+            💜
+        </div>
+
+
+        <div class="intro-content">
+
+            <h2>Choose an Exercise</h2>
+
+            <p>
+                Select an activity that feels comfortable for you.
+                Each exercise includes simple instructions and a short
+                demonstration video so beginners can follow along easily.
+            </p>
+
+
+            <div class="intro-points">
+
+                <span>
+                    🌱 Beginner Friendly
+                </span>
+
+                <span>
+                    🎥 Video Guidance
+                </span>
+
+                <span>
+                    📋 Step-by-Step
+                </span>
+
+                <span>
+                    ⏱️ Guided Timer
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         Exercise Cards
+         ========================================= -->
+
+    <section class="exercise-grid">
+
+
+
+        <!-- =====================================
+             1. Light Walking
+             ===================================== -->
+
+        <div class="exercise-card"
+             data-exercise-card="Light Walking">
+
+
+            <div class="exercise-icon">
+                🚶
+            </div>
+
+
+            <div class="level-badge">
+                🌱 Beginner
+            </div>
+
+
+            <h3>
+                Light Walking
+            </h3>
+
+
+            <p class="exercise-description">
+
+                A simple walking activity to refresh your body,
+                improve movement and give your mind a short break.
+
+            </p>
+
+
+            <div class="exercise-info">
+
+                <span>
+                    ⏱️ 5 Minutes
+                </span>
+
+                <span>
+                    🚶 Easy
+                </span>
+
+            </div>
+
+
+
+            <!-- Quick Introduction -->
+
+            <div class="mini-section">
+
+                <h4>
+                    💡 About
+                </h4>
+
+                <p>
+                    Walk slowly and comfortably while paying attention
+                    to your breathing and surroundings.
+                </p>
+
+            </div>
+
+
+
+            <!-- Steps -->
+
+            <div class="steps-section">
+
+                <h4>
+                    📋 How to do it
+                </h4>
+
+
+                <ol>
+
+                    <li>
+                        Stand comfortably and relax your shoulders.
+                    </li>
+
+                    <li>
+                        Start walking at a slow and comfortable pace.
+                    </li>
+
+                    <li>
+                        Keep your breathing natural and relaxed.
+                    </li>
+
+                    <li>
+                        Keep your posture comfortable while walking.
+                    </li>
+
+                    <li>
+                        Continue for about 5 minutes.
+                    </li>
+
+                    <li>
+                        Slow down gradually before stopping.
+                    </li>
+
+                </ol>
+
+            </div>
+
+
+
+            <!-- Benefits -->
+
+            <div class="benefit-box">
+
+                <strong>
+                    ✨ Why try it?
+                </strong>
+
+                <p>
+                    Gentle movement can help you take a mental break
+                    and stay physically active.
+                </p>
+
+            </div>
+
+
+
+            <!-- Buttons -->
+
+            <div class="card-buttons">
+
+
+                <button
+                    type="button"
+                    class="video-btn"
+                    data-video="https://youtu.be/nz9LcwYagqI?si=rOifD5i4OGtTVaMO"
+                    data-title="🚶 Light Walking">
+
+                    🎥 Watch Video
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="start-exercise"
+                    data-exercise="Light Walking"
+                    data-duration="5">
+
+                    ▶ Start Exercise
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             2. Gentle Stretching
+             ===================================== -->
+
+        <div class="exercise-card"
+             data-exercise-card="Gentle Stretching">
+
+
+            <div class="exercise-icon">
+                🤸
+            </div>
+
+
+            <div class="level-badge">
+                🌱 Beginner
+            </div>
+
+
+            <h3>
+                Gentle Stretching
+            </h3>
+
+
+            <p class="exercise-description">
+
+                Gentle stretches that can help release body tension
+                and make you feel more relaxed.
+
+            </p>
+
+
+            <div class="exercise-info">
+
+                <span>
+                    ⏱️ 5 Minutes
+                </span>
+
+                <span>
+                    🤸 Easy
+                </span>
+
+            </div>
+
+
+
+            <div class="mini-section">
+
+                <h4>
+                    💡 About
+                </h4>
+
+                <p>
+                    Use slow and comfortable movements. Never force
+                    your body into a painful position.
+                </p>
+
+            </div>
+
+
+
+            <div class="steps-section">
+
+                <h4>
+                    📋 How to do it
+                </h4>
+
+
+                <ol>
+
+                    <li>
+                        Stand or sit comfortably.
+                    </li>
+
+                    <li>
+                        Relax your shoulders and neck.
+                    </li>
+
+                    <li>
+                        Slowly move one body part at a time.
+                    </li>
+
+                    <li>
+                        Hold a gentle stretch without bouncing.
+                    </li>
+
+                    <li>
+                        Breathe slowly throughout the movement.
+                    </li>
+
+                    <li>
+                        Release the stretch slowly and relax.
+                    </li>
+
+                </ol>
+
+            </div>
+
+
+
+            <div class="benefit-box">
+
+                <strong>
+                    ✨ Why try it?
+                </strong>
+
+                <p>
+                    Gentle stretching can help you relax and become
+                    more aware of body tension.
+                </p>
+
+            </div>
+
+
+
+            <div class="card-buttons">
+
+
+                <button
+                    type="button"
+                    class="video-btn"
+                    data-video="https://youtu.be/LCyP3F7gRC4?si=XpC14CKV5tdpjB3Z"
+                    data-title="🤸 Gentle Stretching">
+
+                    🎥 Watch Video
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="start-exercise"
+                    data-exercise="Gentle Stretching"
+                    data-duration="5">
+
+                    ▶ Start Exercise
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             3. Relaxation Exercise
+             ===================================== -->
+
+        <div class="exercise-card"
+             data-exercise-card="Relaxation Exercise">
+
+
+            <div class="exercise-icon">
+                🧘
+            </div>
+
+
+            <div class="level-badge">
+                🌱 Beginner
+            </div>
+
+
+            <h3>
+                Relaxation Exercise
+            </h3>
+
+
+            <p class="exercise-description">
+
+                A calm activity designed to help you slow down,
+                relax your body and focus your attention.
+
+            </p>
+
+
+            <div class="exercise-info">
+
+                <span>
+                    ⏱️ 10 Minutes
+                </span>
+
+                <span>
+                    🧘 Calm
+                </span>
+
+            </div>
+
+
+
+            <div class="mini-section">
+
+                <h4>
+                    💡 About
+                </h4>
+
+                <p>
+                    Find a comfortable position and give yourself
+                    a few quiet minutes without rushing.
+                </p>
+
+            </div>
+
+
+
+            <div class="steps-section">
+
+                <h4>
+                    📋 How to do it
+                </h4>
+
+
+                <ol>
+
+                    <li>
+                        Sit or lie down in a comfortable position.
+                    </li>
+
+                    <li>
+                        Close your eyes if that feels comfortable.
+                    </li>
+
+                    <li>
+                        Relax your shoulders, hands and face.
+                    </li>
+
+                    <li>
+                        Take slow and comfortable breaths.
+                    </li>
+
+                    <li>
+                        Notice areas of tension and gently relax them.
+                    </li>
+
+                    <li>
+                        Continue calmly for about 10 minutes.
+                    </li>
+
+                </ol>
+
+            </div>
+
+
+
+            <div class="benefit-box">
+
+                <strong>
+                    ✨ Why try it?
+                </strong>
+
+                <p>
+                    Relaxation exercises can provide a quiet break
+                    and help you focus on the present moment.
+                </p>
+
+            </div>
+
+
+
+            <div class="card-buttons">
+
+
+                <button
+                    type="button"
+                    class="video-btn"
+                    data-video="https://youtu.be/8ln4XfRi6uw?si=YYnfmsuieTArwmDJ"
+                    data-title="🧘 Relaxation Exercise">
+
+                    🎥 Watch Video
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="start-exercise"
+                    data-exercise="Relaxation Exercise"
+                    data-duration="10">
+
+                    ▶ Start Exercise
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             4. Breathing Exercise
+             ===================================== -->
+
+        <div class="exercise-card"
+             data-exercise-card="Breathing Exercise">
+
+
+            <div class="exercise-icon">
+                🌬️
+            </div>
+
+
+            <div class="level-badge">
+                🌱 Beginner
+            </div>
+
+
+            <h3>
+                Breathing Exercise
+            </h3>
+
+
+            <p class="exercise-description">
+
+                Slow and comfortable breathing to help you
+                calm your body and focus your attention.
+
+            </p>
+
+
+            <div class="exercise-info">
+
+                <span>
+                    ⏱️ 2 Minutes
+                </span>
+
+                <span>
+                    🌬️ Calm
+                </span>
+
+            </div>
+
+
+
+            <div class="mini-section">
+
+                <h4>
+                    💡 About
+                </h4>
+
+                <p>
+                    Focus on slow, comfortable breathing. Do not
+                    force your breath or hold it uncomfortably.
+                </p>
+
+            </div>
+
+
+
+            <div class="steps-section">
+
+                <h4>
+                    📋 How to do it
+                </h4>
+
+
+                <ol>
+
+                    <li>
+                        Sit comfortably with your back relaxed.
+                    </li>
+
+                    <li>
+                        Relax your shoulders.
+                    </li>
+
+                    <li>
+                        Take a slow breath in through your nose.
+                    </li>
+
+                    <li>
+                        Slowly breathe out in a comfortable way.
+                    </li>
+
+                    <li>
+                        Continue this gentle breathing pattern.
+                    </li>
+
+                    <li>
+                        Stop if you feel dizzy or uncomfortable.
+                    </li>
+
+                </ol>
+
+            </div>
+
+
+
+            <div class="benefit-box">
+
+                <strong>
+                    ✨ Why try it?
+                </strong>
+
+                <p>
+                    Slow breathing can provide a simple moment of
+                    calm and help you focus your attention.
+                </p>
+
+            </div>
+
+
+
+            <div class="card-buttons">
+
+
+                <button
+                    type="button"
+                    class="video-btn"
+                    data-video="https://youtu.be/OtHPzU0-t2Y?si=84Y6F2calmDyZpjR"
+                    data-title="🌬️ Breathing Exercise">
+
+                    🎥 Watch Video
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="start-exercise"
+                    data-exercise="Breathing Exercise"
+                    data-duration="2">
+
+                    ▶ Start Exercise
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         Video Modal
+         ========================================= -->
+
+    <div class="video-modal"
+         id="videoModal">
+
+
+        <div class="video-modal-content">
+
+
+            <button
+                type="button"
+                class="close-video"
+                id="closeVideo"
+                aria-label="Close video">
+
+                ✕
+
+            </button>
+
+
+            <h2 id="videoTitle">
+                Exercise Video
+            </h2>
+
+
+            <div class="video-container">
+
+
+                <!-- =================================
+                     YouTube Video
+                     ================================= -->
+
+                <iframe
+                    id="youtubeExerciseVideo"
+                    src=""
+                    title="Exercise Instruction Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="
+                        display:none;
+                        width:100%;
+                        min-height:315px;
+                        border:0;
+                        border-radius:12px;
+                    ">
+                </iframe>
+
+
+                <!-- =================================
+                     Local MP4 Video
+                     ================================= -->
+
+                <video
+                    id="exerciseVideo"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    style="
+                        display:none;
+                        width:100%;
+                        max-height:500px;
+                        border-radius:12px;
+                    ">
+
+                    Your browser does not support video playback.
+
+                </video>
+
+
+            </div>
+
+
+            <p id="videoStatus"
+               class="video-status">
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         Exercise Timer
+         ========================================= -->
+
+    <section class="timer-section"
+             id="timerSection">
+
+
+        <div class="timer-heading">
+
+
+            <span class="timer-icon">
+                ⏱️
+            </span>
+
+
+            <div>
+
+                <h2 id="selectedExercise">
+                    Exercise Timer
+                </h2>
+
+
+                <p>
+                    Complete the guided timer at your own comfortable pace.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timer"
+             id="timer">
+
+            00:00
+
+        </div>
+
+
+
+        <p id="timerMessage">
+
+            Select an exercise above to begin.
+
+        </p>
+
+
+
+        <div class="timer-buttons">
+
+
+            <button
+                type="button"
+                id="startTimer">
+
+                ▶ Start
+
+            </button>
+
+
+            <button
+                type="button"
+                id="pauseTimer">
+
+                ⏸ Pause
+
+            </button>
+
+
+            <button
+                type="button"
+                id="resetTimer">
+
+                🔄 Reset
+
+            </button>
+
+
+        </div>
+
+
+
+        <button
+            type="button"
+            id="completeExercise"
+            class="complete-btn"
+            disabled>
+
+            ✅ Complete Exercise
+
+        </button>
+
+
+
+        <div id="exerciseMessage"
+             class="exercise-message">
+        </div>
+
+
+
+        <!-- Safety Note -->
+
+        <div class="safety-note">
+
+
+            <strong>
+                💜 Remember
+            </strong>
+
+
+            <p>
+                Exercise should feel comfortable. Stop if you experience
+                pain, dizziness, unusual discomfort or difficulty breathing.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =========================================
+     Exercise JavaScript
+     ========================================= -->
+
+<script src="{{ url_for('static', filename='js/exercise.js') }}">
+</script>
+
+
+</body>
+
+</html>

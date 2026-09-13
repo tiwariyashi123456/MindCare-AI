@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Reports - MindCare AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/report.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>🧠</span>
+            <h2>MindCare AI</h2>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+            <a href="{{ url_for('mind_check') }}">
+                🧠
+                <span>Mind Check</span>
+            </a>
+
+            <a href="{{ url_for('meditation') }}">
+                🧘
+                <span>Meditation</span>
+            </a>
+
+            <a href="{{ url_for('exercise') }}">
+                🏃
+                <span>Exercise</span>
+            </a>
+
+            <a href="{{ url_for('yoga') }}">
+                🧘‍♀️
+                <span>Yoga</span>
+            </a>
+
+            <a href="{{ url_for('wellness_reminder') }}">
+                🔔
+                <span>Wellness Reminder</span>
+            </a>
+
+            <a href="{{ url_for('journal') }}">
+                📔
+                <span>Journal</span>
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                📊
+                <span>My Progress</span>
+            </a>
+
+            <a href="{{ url_for('report') }}" class="active">
+                📄
+                <span>My Reports</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+                <h1>📄 My Reports</h1>
+
+                <p>
+                    View your overall mental wellness activity and progress.
+                </p>
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="avatar">
+                    {{ user_name[0]|upper }}
+                </div>
+
+                <span>
+                    {{ user_name }}
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="report-section">
+
+            <h2>📊 Wellness Summary</h2>
+
+            <div class="summary-grid">
+
+
+                <!-- MOOD -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        😊
+                    </div>
+
+                    <div>
+
+                        <h3>Mood Tracking</h3>
+
+                        <strong>
+                            {{ mood_count }}
+                        </strong>
+
+                        <p>
+                            Mood records
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MIND CHECK -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        🧠
+                    </div>
+
+                    <div>
+
+                        <h3>Mind Check</h3>
+
+                        <strong>
+                            {{ mind_check_count }}
+                        </strong>
+
+                        <p>
+                            Assessments completed
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MEDITATION -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        🧘
+                    </div>
+
+                    <div>
+
+                        <h3>Meditation</h3>
+
+                        <strong>
+                            {{ meditation_count }}
+                        </strong>
+
+                        <p>
+                            Sessions completed
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXERCISE -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        🏃
+                    </div>
+
+                    <div>
+
+                        <h3>Exercise</h3>
+
+                        <strong>
+                            {{ exercise_count }}
+                        </strong>
+
+                        <p>
+                            Sessions completed
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- YOGA -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        🧘‍♀️
+                    </div>
+
+                    <div>
+
+                        <h3>Yoga</h3>
+
+                        <strong>
+                            {{ yoga_count }}
+                        </strong>
+
+                        <p>
+                            Sessions completed
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JOURNAL -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        📔
+                    </div>
+
+                    <div>
+
+                        <h3>Journal</h3>
+
+                        <strong>
+                            {{ journal_count }}
+                        </strong>
+
+                        <p>
+                            Journal entries
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OVERALL REPORT ================= -->
+
+        <section class="report-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>🌱 Overall Wellness Report</h2>
+
+                    <p>
+                        Your MindCare AI activity at a glance.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="printReportButton"
+                    class="print-button">
+
+                    🖨️ Print Report
+
+                </button>
+
+            </div>
+
+
+            <div class="report-card">
+
+
+                <div class="report-row">
+
+                    <span>
+                        😊 Mood Records
+                    </span>
+
+                    <strong>
+                        {{ mood_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        🧠 Mind Check Assessments
+                    </span>
+
+                    <strong>
+                        {{ mind_check_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        🧘 Meditation Sessions
+                    </span>
+
+                    <strong>
+                        {{ meditation_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        🏃 Exercise Sessions
+                    </span>
+
+                    <strong>
+                        {{ exercise_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        🧘‍♀️ Yoga Sessions
+                    </span>
+
+                    <strong>
+                        {{ yoga_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span>
+                        📔 Journal Entries
+                    </span>
+
+                    <strong>
+                        {{ journal_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="report-total">
+
+                    <span>
+                        ⭐ Total Wellness Activities
+                    </span>
+
+                    <strong>
+                        {{ total_activities }}
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MOTIVATION ================= -->
+
+        <section class="motivation-card">
+
+            <div class="motivation-icon">
+                💜
+            </div>
+
+            <div>
+
+                <h2>
+                    Keep Taking Care of Yourself
+                </h2>
+
+                <p>
+                    Every small step toward better mental wellness matters.
+                    Keep using MindCare AI regularly and take care of yourself.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="page-footer">
+
+            <p>
+                © 2026 MindCare AI • Your Mental Wellness Companion 💜
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{{ url_for('static', filename='js/report.js') }}"></script>
+
+</body>
+</html>

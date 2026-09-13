@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mind Games | MindCare AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/mind_games.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🧠</div>
+
+            <div>
+                <h2>MindCare</h2>
+                <span>AI Wellness</span>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('dashboard') }}">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('mind_check') }}">
+                <span>📝</span>
+                Mind Check
+            </a>
+
+            <a href="{{ url_for('ai_chat') }}">
+                <span>🤖</span>
+                AI Chat
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                <span>📊</span>
+                My Progress
+            </a>
+
+            <a href="{{ url_for('meditation') }}">
+                <span>🧘</span>
+                Meditation
+            </a>
+
+            <a href="{{ url_for('yoga') }}">
+                <span>🧘‍♀️</span>
+                Yoga
+            </a>
+
+            <a href="{{ url_for('exercise') }}">
+                <span>🏃</span>
+                Exercise
+            </a>
+
+            <a href="{{ url_for('wellness_timer') }}">
+                <span>⏱️</span>
+                Wellness Timer
+            </a>
+
+            <a href="{{ url_for('report') }}">
+                <span>📄</span>
+                My Reports
+            </a>
+
+            <a href="{{ url_for('mind_games') }}"
+               class="active">
+                <span>🎮</span>
+                Mind Games
+            </a>
+
+            <a href="{{ url_for('professional_help') }}">
+                <span>👩‍⚕️</span>
+                Professional Help
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-link">
+                <span>🚪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="page-label">BRAIN WELLNESS</p>
+
+                <h1>Mind Games</h1>
+
+                <p class="page-subtitle">
+                    Play simple games to train your memory,
+                    attention and thinking skills.
+                </p>
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple-icon">
+                    🎮
+                </div>
+
+                <div>
+                    <span>Total Activities</span>
+                    <strong id="totalActivities">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon gold-icon">
+                    🏆
+                </div>
+
+                <div>
+                    <span>Best Score</span>
+                    <strong id="bestScore">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green-icon">
+                    ⭐
+                </div>
+
+                <div>
+                    <span>Today's Score</span>
+                    <strong id="todayScore">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= GAME SECTION ================= -->
+
+        <section class="games-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">
+                        PLAY & TRAIN
+                    </p>
+
+                    <h2>Choose a Mind Game</h2>
+
+                    <p>
+                        Select a game below and complete the challenge.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= GAME CARDS ================= -->
+
+            <div class="games-grid">
+
+
+                <!-- MEMORY MATCH -->
+
+                <article class="game-card">
+
+                    <div class="game-card-top">
+
+                        <div class="game-icon memory-icon">
+                            🔢
+                        </div>
+
+                        <span class="difficulty easy">
+                            EASY
+                        </span>
+
+                    </div>
+
+
+                    <h3>Memory Match</h3>
+
+                    <p>
+                        Remember the numbers shown on the cards
+                        and find the matching pairs.
+                    </p>
+
+
+                    <div class="game-info">
+
+                        <span>🧠 Memory</span>
+
+                        <span>⭐ 100 pts</span>
+
+                    </div>
+
+
+                    <button type="button"
+                            class="start-game-btn"
+                            data-game="memory">
+
+                        Start Game
+                        <span>→</span>
+
+                    </button>
+
+                </article>
+
+
+
+                <!-- PATTERN MEMORY -->
+
+                <article class="game-card">
+
+                    <div class="game-card-top">
+
+                        <div class="game-icon pattern-icon">
+                            🟣
+                        </div>
+
+                        <span class="difficulty medium">
+                            MEDIUM
+                        </span>
+
+                    </div>
+
+
+                    <h3>Pattern Memory</h3>
+
+                    <p>
+                        Watch the tiles light up and remember
+                        the exact order.
+                    </p>
+
+
+                    <div class="game-info">
+
+                        <span>🎯 Attention</span>
+
+                        <span>⭐ 150 pts</span>
+
+                    </div>
+
+
+                    <button type="button"
+                            class="start-game-btn"
+                            data-game="pattern">
+
+                        Start Game
+                        <span>→</span>
+
+                    </button>
+
+                </article>
+
+
+
+                <!-- CAR MATCH -->
+
+                <article class="game-card">
+
+                    <div class="game-card-top">
+
+                        <div class="game-icon car-icon">
+                            🚗
+                        </div>
+
+                        <span class="difficulty medium">
+                            MEDIUM
+                        </span>
+
+                    </div>
+
+
+                    <h3>Car Match</h3>
+
+                    <p>
+                        Flip the cards and match the same
+                        car pairs using your memory.
+                    </p>
+
+
+                    <div class="game-info">
+
+                        <span>🚗 Matching</span>
+
+                        <span>⭐ 200 pts</span>
+
+                    </div>
+
+
+                    <button type="button"
+                            class="start-game-btn"
+                            data-game="car">
+
+                        Start Game
+                        <span>→</span>
+
+                    </button>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= GAME PLAY AREA ================= -->
+
+        <section class="game-area-section"
+                 id="gameAreaSection"
+                 style="display: none;">
+
+
+            <div class="game-panel">
+
+
+                <!-- GAME HEADER -->
+
+                <div class="game-panel-header">
+
+                    <div>
+
+                        <span class="playing-label">
+                            NOW PLAYING
+                        </span>
+
+                        <h2 id="currentGameTitle">
+                            Mind Game
+                        </h2>
+
+                        <p id="gameInstruction">
+                            Follow the instructions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="live-score">
+
+                        <span>SCORE</span>
+
+                        <strong id="liveScore">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GAME CONTENT -->
+
+                <div id="gameContainer"
+                     class="game-container">
+                </div>
+
+
+
+                <!-- GAME MESSAGE -->
+
+                <div id="gameMessage"
+                     class="game-message">
+                </div>
+
+
+
+                <!-- GAME ACTIONS -->
+
+                <div class="game-actions">
+
+                    <button type="button"
+                            id="finishGameBtn"
+                            class="finish-btn">
+
+                        ✓ Finish Game
+
+                    </button>
+
+
+                    <button type="button"
+                            id="restartGameBtn"
+                            class="restart-btn">
+
+                        ↻ Restart
+
+                    </button>
+
+
+                    <button type="button"
+                            id="closeGameBtn"
+                            class="close-btn">
+
+                        ✕ Close
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section id="resultSection"
+                 class="result-section"
+                 style="display: none;">
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <p class="result-label">
+                    GAME COMPLETED
+                </p>
+
+                <h2>Great Work!</h2>
+
+                <p>
+                    You completed the mind game.
+                </p>
+
+
+                <div class="final-score-box">
+
+                    <span>Your Score</span>
+
+                    <strong id="finalScore">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stats">
+
+                    <div>
+                        <span>Best Score</span>
+                        <strong id="resultBestScore">
+                            0
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Today's Score</span>
+                        <strong id="resultTodayScore">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <button type="button"
+                        id="playAgainBtn"
+                        class="play-again-btn">
+
+                    🎮 Play Again
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="page-footer">
+
+            <span>MindCare AI</span>
+
+            <span>•</span>
+
+            <span>Train your mind, one game at a time.</span>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='js/mind_games.js') }}">
+    </script>
+
+</body>
+
+</html>

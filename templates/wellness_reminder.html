@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Wellness Reminder | MindCare AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/wellness_reminder.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>🧠</span>
+            <h2>MindCare AI</h2>
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('dashboard') }}">
+                🏠 Dashboard
+            </a>
+
+            <a href="{{ url_for('mind_check') }}">
+                🧠 Mind Check
+            </a>
+
+            <a href="{{ url_for('meditation') }}">
+                🧘 Meditation
+            </a>
+
+            <a href="{{ url_for('exercise') }}">
+                🏃 Exercise
+            </a>
+
+            <a href="{{ url_for('yoga') }}">
+                🧘‍♀️ Yoga
+            </a>
+
+            <a href="{{ url_for('wellness_reminder') }}"
+               class="active">
+                🔔 Wellness Reminder
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="{{ url_for('logout') }}">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="page-header">
+
+            <div>
+                <h1>🔔 Smart Wellness Reminder</h1>
+
+                <p>
+                    Stay consistent with your mental and physical wellness.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- ================= REMINDER FORM ================= -->
+
+        <section class="reminder-card">
+
+            <div class="card-title">
+
+                <div class="title-icon">
+                    🔔
+                </div>
+
+                <div>
+                    <h2>Create Wellness Reminder</h2>
+
+                    <p>
+                        Set a reminder for your daily wellness activities.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form id="reminderForm">
+
+                <!-- Reminder Type -->
+
+                <div class="form-group">
+
+                    <label for="reminderType">
+                        Reminder Type
+                    </label>
+
+                    <select id="reminderType" required>
+
+                        <option value="">
+                            Select reminder type
+                        </option>
+
+                        <option value="Mind Check">
+                            🧠 Mind Check
+                        </option>
+
+                        <option value="Exercise">
+                            🏃 Exercise
+                        </option>
+
+                        <option value="Meditation">
+                            🧘 Meditation
+                        </option>
+
+                        <option value="Yoga">
+                            🧘‍♀️ Yoga
+                        </option>
+
+                        <option value="Custom">
+                            🔔 Custom Wellness
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Reminder Title -->
+
+                <div class="form-group">
+
+                    <label for="reminderTitle">
+                        Reminder Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reminderTitle"
+                        placeholder="Example: Evening Mind Check"
+                        maxlength="100"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Time -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+    <label>
+        ⏰ Reminder Time
+    </label>
+
+    <div class="time-selector">
+
+        <!-- Hour -->
+        <select id="reminderHour" required>
+
+            <option value="">Hour</option>
+
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+        </select>
+
+
+        <!-- Minute -->
+        <select id="reminderMinute" required>
+
+            <option value="">Minute</option>
+
+            <option value="00">00</option>
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+
+        </select>
+
+
+        <!-- AM / PM -->
+        <select id="reminderPeriod" required>
+
+            <option value="">AM / PM</option>
+
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+
+        </select>
+
+    </div>
+
+    <!-- Hidden value sent to Flask -->
+    <input
+        type="hidden"
+        id="reminderTime"
+    >
+
+</div>
+
+
+                    <!-- Repeat -->
+
+                    <div class="form-group">
+
+                        <label for="repeatType">
+                            🔁 Repeat
+                        </label>
+
+                        <select id="repeatType">
+
+                            <option value="daily">
+                                Every Day
+                            </option>
+
+                            <option value="once">
+                                Once
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Message -->
+
+                <div class="form-group">
+
+                    <label for="reminderMessage">
+                        📝 Reminder Message
+                    </label>
+
+                    <textarea
+                        id="reminderMessage"
+                        rows="4"
+                        maxlength="300"
+                        placeholder="Example: Take a few minutes to check how you are feeling today."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Save Button -->
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                    id="saveReminderBtn">
+
+                    ➕ Save Reminder
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= REMINDER LIST ================= -->
+
+        <section class="saved-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>📋 My Wellness Reminders</h2>
+
+                    <p>
+                        Manage your scheduled wellness reminders.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Reminder List -->
+
+            <div
+                id="reminderList"
+                class="reminder-list">
+
+                <!-- JavaScript will add reminders here -->
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        🔔
+                    </div>
+
+                    <h3>No reminders yet</h3>
+
+                    <p>
+                        Create your first wellness reminder above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{{ url_for('static', filename='js/wellness_reminder.js') }}"></script>
+
+</body>
+
+</html>
